@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/activity_start_gmail_root"
+    android:orientation="vertical"
+    tools:context="com.wordpress.farhantanvirutshaw.lostsurvive.StartGmail">
+
+    <include
+        android:id="@+id/activity_start_gmail_toolbar"
+        layout="@layout/app_bar"/>
+
+    <EditText
+        android:hint="Receiver's Email"
+        android:id="@+id/activity_start_gmail_edittext_mail"
+        android:inputType="textEmailAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:hint="Message Subject "
+        android:id="@+id/activity_start_gmail_edittext_msubject"
+        android:inputType="textEmailAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:hint="Message Body "
+        android:id="@+id/activity_start_gmail_edittext_mbody"
+        android:inputType="textEmailAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:text=""
+        android:id="@+id/btn_call_gmail_api"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tview_label"
+        android:scrollbars="vertical"
+        android:padding="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

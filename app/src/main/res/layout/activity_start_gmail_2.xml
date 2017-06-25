@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/gmail_root"
+    tools:context="com.wordpress.farhantanvirutshaw.lostsurvive.StartGmail">
+
+    <include
+        layout="@layout/my_toolbar"/>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:gravity="center"
+            android:layout_alignTop="@id/msg_to_edittext"
+            android:layout_alignBottom="@id/msg_to_edittext"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="To"
+            android:id="@+id/msg_to_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:inputType="textEmailAddress"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_alignParentTop="true"
+            android:id="@+id/msg_to_edittext"
+            android:layout_toRightOf="@id/msg_to_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:inputType="textEmailSubject"
+            android:layout_alignRight="@id/msg_to_edittext"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:hint="Subject"
+            android:layout_below="@id/msg_to_label"
+            android:id="@+id/message_subject_editext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:inputType="textLongMessage"
+            android:layout_alignRight="@id/msg_to_edittext"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@android:color/transparent"
+            android:gravity="top"
+            android:hint="Compose email"
+            android:layout_below="@id/message_subject_editext"
+            android:id="@+id/msg_compose_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+        <android.support.design.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_gravity="end|bottom"
+            android:layout_margin="16dp"
+            android:id="@+id/fab"
+            android:src="@drawable/ic_send_white_24dp"
+            android:background="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        </android.support.design.widget.CoordinatorLayout>
+
+
+    </RelativeLayout>
+</LinearLayout>

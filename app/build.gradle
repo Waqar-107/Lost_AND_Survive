@@ -28,18 +28,19 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.3.1'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.android.support:design:25.0.0'
-    compile 'com.google.android.gms:play-services-auth:11.0.1'
-    compile 'pub.devrel:easypermissions:0.3.0'
     compile('com.google.api-client:google-api-client-android:1.22.0') {
         exclude group: 'org.apache.httpcomponents'
     }
     compile('com.google.apis:google-api-services-gmail:v1-rev67-1.22.0') {
         exclude group: 'org.apache.httpcomponents'
     }
-    testCompile 'junit:junit:4.12'
     compile files('libs/mail.jar')
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.android.support:design:25.0.0'
+    compile 'com.google.android.gms:play-services-auth:11.0.1'
+    compile 'pub.devrel:easypermissions:0.3.0'
     compile 'com.google.android.gms:play-services:11.0.1'
+    compile 'com.google.android.gms:play-services-maps:11.0.1'
+    testCompile 'junit:junit:4.12'
 }

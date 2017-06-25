@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Lost &amp; Survive</string>
+    <string name="not_available">Not Available</string>
+    <string name="title_activity_maps">Map</string>
 </resources>

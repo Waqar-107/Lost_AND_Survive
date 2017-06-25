@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="msg_from_edittext" type="id"/>
+    <item name="msg_to_edittext" type="id"/>
+
+</resources>

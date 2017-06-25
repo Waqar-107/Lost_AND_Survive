@@ -13,6 +13,8 @@ import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
@@ -73,6 +75,7 @@ public class StartGmail extends AppCompatActivity implements EasyPermissions.Per
     EditText msgSubjectEditText;
     EditText msgBodyEditText;
     EditText msgToEditText;
+    FloatingActionButton fab;
 
 
     /**
@@ -83,38 +86,50 @@ public class StartGmail extends AppCompatActivity implements EasyPermissions.Per
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_start_gmail);
+        setContentView(R.layout.activity_start_gmail_2);
         gmailToolbar = (Toolbar) findViewById(R.id.activity_start_gmail_toolbar);
         setSupportActionBar(gmailToolbar);
 
-        msgToEditText = (EditText) findViewById(R.id.activity_start_gmail_edittext_mail);
+        msgToEditText = (EditText) findViewById(R.id.msg_to_edittext);
 
-        msgSubjectEditText = (EditText) findViewById(R.id.activity_start_gmail_edittext_msubject);
+        msgSubjectEditText = (EditText) findViewById(R.id.message_subject_editext);
 
-        msgBodyEditText = (EditText) findViewById(R.id.activity_start_gmail_edittext_mbody);
+        msgBodyEditText = (EditText) findViewById(R.id.msg_compose_edittext);
 
 
         LinearLayout activityLayout = (LinearLayout) findViewById(R.id.activity_start_gmail_root);
 
+        fab = (FloatingActionButton) findViewById(R.id.fab);
 
-
-        mCallApiButton = (Button) findViewById(R.id.btn_call_gmail_api);
-        mCallApiButton.setText(BUTTON_TEXT);
-        mCallApiButton.setOnClickListener(new View.OnClickListener() {
+        fab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                mCallApiButton.setEnabled(false);
-                mOutputText.setText("");
+            public void onClick(View view) {
+                fab.setEnabled(false);
+//                mCallApiButton.setEnabled(false);
+//                mOutputText.setText("");
                 getResultsFromApi();
-                mCallApiButton.setEnabled(true);
+//                mCallApiButton.setEnabled(true);
+                fab.setEnabled(true);
             }
         });
 
-        mOutputText = (TextView) findViewById(R.id.tview_label);
+//        mCallApiButton = (Button) findViewById(R.id.btn_call_gmail_api);
+//        mCallApiButton.setText(BUTTON_TEXT);
+//        mCallApiButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                mCallApiButton.setEnabled(false);
+//                mOutputText.setText("");
+//                getResultsFromApi();
+//                mCallApiButton.setEnabled(true);
+//            }
+//        });
 
-        mOutputText.setMovementMethod(new ScrollingMovementMethod());
-        mOutputText.setText(
-                "Click the \'" + BUTTON_TEXT + "\' button to test the API.");
+//        mOutputText = (TextView) findViewById(R.id.tview_label);
+
+//        mOutputText.setMovementMethod(new ScrollingMovementMethod());
+//        mOutputText.setText(
+//                "Click the \'" + BUTTON_TEXT + "\' button to test the API.");
 
 
         mProgress = new ProgressDialog(this);
@@ -143,7 +158,16 @@ public class StartGmail extends AppCompatActivity implements EasyPermissions.Per
         } else if (mCredential.getSelectedAccountName() == null) {
             chooseAccount();
         } else if (!isDeviceOnline()) {
-            mOutputText.setText("No network connection available.");
+//            mOutputText.setText("No network connection available.");
+            final Snackbar snackbar = Snackbar.make(fab,"No network connection available.",Snackbar.LENGTH_LONG);
+            snackbar.setAction("OK", new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    snackbar.dismiss();
+                }
+            });
+            snackbar.show();
+
         } else {
 
 
@@ -219,9 +243,19 @@ public class StartGmail extends AppCompatActivity implements EasyPermissions.Per
         switch (requestCode) {
             case REQUEST_GOOGLE_PLAY_SERVICES:
                 if (resultCode != RESULT_OK) {
-                    mOutputText.setText(
-                            "This app requires Google Play Services. Please install " +
-                                    "Google Play Services on your device and relaunch this app.");
+//                    mOutputText.setText(
+//                            "This app requires Google Play Services. Please install " +
+//                                    "Google Play Services on your device and relaunch this app.");
+
+                    final Snackbar snackbar = Snackbar.make(fab,"Requires Google Play Services",Snackbar.LENGTH_LONG);
+                    snackbar.setAction("OK", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            snackbar.dismiss();
+                        }
+                    });
+                    snackbar.show();
+
                 } else {
                     getResultsFromApi();
                 }
@@ -406,7 +440,7 @@ public class StartGmail extends AppCompatActivity implements EasyPermissions.Per
 
         @Override
         protected void onPreExecute() {
-            mOutputText.setText("");
+//            mOutputText.setText("");
             mProgress.show();
         }
 
@@ -414,10 +448,10 @@ public class StartGmail extends AppCompatActivity implements EasyPermissions.Per
         protected void onPostExecute(List<String> output) {
             mProgress.hide();
             if (output == null || output.size() == 0) {
-                mOutputText.setText("No results returned.");
+//                mOutputText.setText("No results returned.");
             } else {
                 output.add(0, "Data retrieved using the Gmail API:");
-                mOutputText.setText(TextUtils.join("\n", output));
+//                mOutputText.setText(TextUtils.join("\n", output));
             }
         }
 
@@ -434,11 +468,11 @@ public class StartGmail extends AppCompatActivity implements EasyPermissions.Per
                             ((UserRecoverableAuthIOException) mLastError).getIntent(),
                             StartGmail.REQUEST_AUTHORIZATION);
                 } else {
-                    mOutputText.setText("The following error occurred:\n"
-                            + mLastError.getMessage());
+//                    mOutputText.setText("The following error occurred:\n"
+//                            + mLastError.getMessage());
                 }
             } else {
-                mOutputText.setText("Request cancelled.");
+//                mOutputText.setText("Request cancelled.");
             }
         }
     }
@@ -489,18 +523,29 @@ public class StartGmail extends AppCompatActivity implements EasyPermissions.Per
 
         @Override
         protected void onPreExecute() {
-            mOutputText.setText("");
+//            mOutputText.setText("");
             mProgress.show();
         }
 
         @Override
         protected void onPostExecute(List<String> output) {
             mProgress.hide();
+
+            final Snackbar snackbar = Snackbar.make(fab,"Message Sent",Snackbar.LENGTH_LONG);
+            snackbar.setAction("OK", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            snackbar.dismiss();
+                        }
+                    });
+            snackbar.show();
+
             if (output == null || output.size() == 0) {
-                mOutputText.setText("No results returned.");
+//                mOutputText.setText("No results returned.");
+
             } else {
                 output.add(0, "Data retrieved using the Gmail API:");
-                mOutputText.setText(TextUtils.join("\n", output));
+//                mOutputText.setText(TextUtils.join("\n", output));
             }
         }
 
@@ -517,11 +562,28 @@ public class StartGmail extends AppCompatActivity implements EasyPermissions.Per
                             ((UserRecoverableAuthIOException) mLastError).getIntent(),
                             StartGmail.REQUEST_AUTHORIZATION);
                 } else {
-                    mOutputText.setText("The following error occurred:\n"
-                            + mLastError.getMessage());
+//                    mOutputText.setText("The following error occurred:\n"
+//                            + mLastError.getMessage());
+                    final Snackbar snackbar = Snackbar.make(fab,"Error occurred,can't proceed",Snackbar.LENGTH_LONG);
+                    snackbar.setAction("OK", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            snackbar.dismiss();
+                        }
+                    });
+                    snackbar.show();
+
                 }
             } else {
-                mOutputText.setText("Request cancelled.");
+//                mOutputText.setText("Request cancelled.");
+                final Snackbar snackbar = Snackbar.make(fab,"Request Canceled",Snackbar.LENGTH_LONG);
+                snackbar.setAction("OK", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        snackbar.dismiss();
+                    }
+                });
+                snackbar.show();
             }
         }
     }

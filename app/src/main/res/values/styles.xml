@@ -7,8 +7,9 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="myCustomToolbarTheme" parent="ThemeOverlay.AppCompat.Light">
+    <style name="myCustomToolbarStyle" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:background">@color/colorPrimary</item>
         <item name="android:textColorPrimary">#FFFFFF</item>
-    </style>
 
+    </style>
 </resources>

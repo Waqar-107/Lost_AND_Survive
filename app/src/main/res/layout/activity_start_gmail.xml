@@ -14,21 +14,21 @@
 
     <EditText
         android:hint="Receiver's Email"
-        android:id="@+id/activity_start_gmail_edittext_mail"
+        android:id="@+id/msg_to_edittext"
         android:inputType="textEmailAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <EditText
         android:hint="Message Subject "
-        android:id="@+id/activity_start_gmail_edittext_msubject"
+        android:id="@+id/message_subject_editext"
         android:inputType="textEmailAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <EditText
         android:hint="Message Body "
-        android:id="@+id/activity_start_gmail_edittext_mbody"
+        android:id="@+id/msg_compose_edittext"
         android:inputType="textEmailAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

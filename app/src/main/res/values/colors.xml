@@ -4,4 +4,40 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="white">#FFFFFF</color>
+
+    <color name="textPoliceDetails">#B4BAC0</color>
+
+    <!-- Text color for the primary location of the police station in the list item -->
+    <color name="textPoliceLocation">#2B3D4D</color>
+
+    <!-- Color for an police station with police 0 and 2 -->
+    <color name="police1">#4A7BA7</color>
+
+    <!-- police circle color for an police station with police between 2 and 3 -->
+    <color name="police2">#04B4B3</color>
+
+    <!-- police circle color for an police station with police between 3 and 4 -->
+    <color name="police3">#10CAC9</color>
+
+    <!-- police circle color for an police station with police between 4 and 5 -->
+    <color name="police4">#F5A623</color>
+
+    <!-- police circle color for an police station with police between 5 and 6 -->
+    <color name="police5">#FF7D50</color>
+
+    <!-- police circle color for an police station with police between 6 and 7 -->
+    <color name="police6">#FC6644</color>
+
+    <!-- police circle color for an police station with police between 7 and 8 -->
+    <color name="police7">#E75F40</color>
+
+    <!-- police circle color for an police station with police between 8 and 9 -->
+    <color name="police8">#E13A20</color>
+
+    <!-- police circle color for an police station with police between 9 and 10 -->
+    <color name="police9">#D93218</color>
+
+    <!-- Magnitude police color for an earthquake with police over 10 -->
+    <color name="police10plus">#C03823</color>
+
 </resources>

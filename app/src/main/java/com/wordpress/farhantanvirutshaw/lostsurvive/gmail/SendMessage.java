@@ -63,6 +63,7 @@ public class SendMessage {
 
         System.out.println("Message id: " + message.getId());
         Log.e("Message id", message.getId());
+        Log.e("Message id", message.getLabelIds().get(0));
         Log.e("Message id",message.toPrettyString());
         System.out.println(message.toPrettyString());
         return message;

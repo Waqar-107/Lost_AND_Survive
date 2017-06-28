@@ -6,6 +6,6 @@ package com.wordpress.farhantanvirutshaw.lostsurvive;
 
 public class Constants {
 
-    protected static final String PREF_KEY_LATITUDE = "PREF_KEY_LATITUDE";
-    protected static final String PREF_KEY_LONGITUDE = "PREF_KEY_LONGITUDE";
+    public static final String PREF_KEY_LATITUDE = "PREF_KEY_LATITUDE";
+    public static final String PREF_KEY_LONGITUDE = "PREF_KEY_LONGITUDE";
 }

@@ -133,7 +133,7 @@ public class StartGmail extends AppCompatActivity implements EasyPermissions.Per
 
 
         mProgress = new ProgressDialog(this);
-        mProgress.setMessage("Calling Gmail API ...");
+        mProgress.setMessage("Message Sending...");
 
 
         // Initialize credentials and service object.
@@ -495,7 +495,29 @@ public class StartGmail extends AppCompatActivity implements EasyPermissions.Per
         @Override
         protected List<String> doInBackground(MimeMessage... mimeMessages) {
             try {
-                sendMessage(mService,SendMessage.MAIL_SENDER,mimeMessages[0]);
+                com.google.api.services.gmail.model.Message message = sendMessage(mService,SendMessage.MAIL_SENDER,mimeMessages[0]);
+                if(message.getLabelIds().get(0).equals("SENT"))
+                {
+                    final Snackbar snackbar = Snackbar.make(fab,"Message Sent!",Snackbar.LENGTH_LONG);
+                    snackbar.setAction("OK", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            snackbar.dismiss();
+                        }
+                    });
+                    snackbar.show();
+                }
+                else
+                {
+                    final Snackbar snackbar = Snackbar.make(fab,"Failed to send the message",Snackbar.LENGTH_LONG);
+                    snackbar.setAction("OK", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            snackbar.dismiss();
+                        }
+                    });
+                    snackbar.show();
+                }
             }
             catch (UserRecoverableAuthIOException e)
             {
@@ -505,6 +527,15 @@ public class StartGmail extends AppCompatActivity implements EasyPermissions.Per
                 Log.e("Utshaw","Messageing exception  " + e.getMessage());
             } catch (IOException e) {
                 Log.e("Utshaw","IO exception  " + e.getMessage());
+                final Snackbar snackbar = Snackbar.make(fab,"Check receiver's address",Snackbar.LENGTH_LONG);
+                snackbar.setAction("OK", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        snackbar.dismiss();
+                    }
+                });
+                snackbar.show();
+
             }
             return null;
         }
@@ -531,14 +562,6 @@ public class StartGmail extends AppCompatActivity implements EasyPermissions.Per
         protected void onPostExecute(List<String> output) {
             mProgress.hide();
 
-            final Snackbar snackbar = Snackbar.make(fab,"Message Sent",Snackbar.LENGTH_LONG);
-            snackbar.setAction("OK", new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            snackbar.dismiss();
-                        }
-                    });
-            snackbar.show();
 
             if (output == null || output.size() == 0) {
 //                mOutputText.setText("No results returned.");

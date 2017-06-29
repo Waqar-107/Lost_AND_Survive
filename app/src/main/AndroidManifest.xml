@@ -61,7 +61,12 @@
 
         <activity
             android:screenOrientation="portrait"
-            android:name=".GPSTempActivity"/>
+            android:name=".LocationActivity"/>
+
+
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".hospital.HospitalListActivity"/>
 
     </application>
 

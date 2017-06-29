@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 if(isGPSEnabled() && isGooglePlayServicesAvailable())
                 {
-                    Intent intent = new Intent(MainActivity.this, GPSTempActivity.class);
+                    Intent intent = new Intent(MainActivity.this, LocationActivity.class);
                     startActivity(intent);
                 }
                 break;
@@ -137,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                     if( isGPSEnabled() && isGooglePlayServicesAvailable())
                     {
-                        Intent intent = new Intent(MainActivity.this, GPSTempActivity.class);
+                        Intent intent = new Intent(MainActivity.this, LocationActivity.class);
                         startActivity(intent);
 
                     }
@@ -168,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
                 snackbar.show();
 
             } else {
-                Intent intent = new Intent(MainActivity.this, GPSTempActivity.class);
+                Intent intent = new Intent(MainActivity.this, LocationActivity.class);
                 startActivity(intent);
             }
         }
@@ -180,7 +180,7 @@ public class MainActivity extends AppCompatActivity {
 
             if(mLocationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) )
             {
-                Intent intent = new Intent(MainActivity.this, GPSTempActivity.class);
+                Intent intent = new Intent(MainActivity.this, LocationActivity.class);
                 startActivity(intent);
             }
             else if( !(mLocationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)))

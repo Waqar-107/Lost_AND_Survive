@@ -22,6 +22,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.wordpress.farhantanvirutshaw.lostsurvive.hospital.HospitalListActivity;
 import com.wordpress.farhantanvirutshaw.lostsurvive.police.PoliceListActivity;
 
 import org.json.JSONArray;
@@ -41,7 +42,7 @@ import java.nio.charset.Charset;
  * Created by utshaw on 6/25/17.
  */
 
-public class GPSTempActivity extends AppCompatActivity {
+public class LocationActivity extends AppCompatActivity {
 
     LocationManager mLocationManager;
     protected TextView mLatitudeText;
@@ -53,14 +54,14 @@ public class GPSTempActivity extends AppCompatActivity {
     double currentLongitude = 0.0;
 
     private static final String LOCATION_REQUEST_URL = "http://maps.googleapis.com/maps/api/geocode/json?";
-    private static final String LOG_TAG = GPSTempActivity.class.getSimpleName();
+    private static final String LOG_TAG = LocationActivity.class.getSimpleName();
 
 
 
     @Override
     public void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_gps_2);
+        setContentView(R.layout.activity_location);
         setSupportActionBar((Toolbar) findViewById(R.id.gps_app_bar));
 
 
@@ -75,7 +76,7 @@ public class GPSTempActivity extends AppCompatActivity {
         showoMapsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(GPSTempActivity.this,MapsActivity.class));
+                startActivity(new Intent(LocationActivity.this,MapsActivity.class));
             }
         });
 
@@ -96,10 +97,34 @@ public class GPSTempActivity extends AppCompatActivity {
                 }
                 else
                 {
-                    startActivity(new Intent(GPSTempActivity.this, PoliceListActivity.class));
+                    startActivity(new Intent(LocationActivity.this, PoliceListActivity.class));
                 }
             }
         });
+
+        Button showHotels = (Button) findViewById(R.id.show_hospital);
+        showHotels.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(!isDeviceOnline())
+                {
+                    final Snackbar snackbar = Snackbar.make(view,"Requires Internet & GPS",Snackbar.LENGTH_LONG);
+                    snackbar.setAction("OK", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            snackbar.dismiss();
+                        }
+                    });
+                    snackbar.show();
+                }
+                else
+                {
+                    startActivity(new Intent(LocationActivity.this, HospitalListActivity.class));
+                }
+            }
+        });
+
+
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
@@ -133,7 +158,7 @@ public class GPSTempActivity extends AppCompatActivity {
             }
             else
             {
-                final Snackbar snackbar = Snackbar.make(getWindow().getDecorView().findViewById(android.R.id.content), "Couldn't retrieve location name\nCheck internet", Snackbar.LENGTH_LONG);
+                final Snackbar snackbar = Snackbar.make(getWindow().getDecorView().findViewById(android.R.id.content), "Couldn't retrieve location name\nCheck internet connection", Snackbar.LENGTH_LONG);
                 View snackbarView = snackbar.getView();
                 TextView textView = (TextView) snackbarView.findViewById(android.support.design.R.id.snackbar_text);
                 textView.setLines(2);

@@ -89,12 +89,13 @@ public class StartGmail extends AppCompatActivity implements EasyPermissions.Per
 
         composeText.setText("\n"+composeText.getText() + "Hi, this is ..." + "\n I am lost,please help me immediately" + "\nMy Phone Number:" + "\nLocation information:");
 
-        gmailToolbar = (Toolbar) findViewById(R.id.activity_start_gmail_toolbar);
+        gmailToolbar = (Toolbar) findViewById(R.id.gmail_appbar);
         setSupportActionBar(gmailToolbar);
 
         msgToEditText = (EditText) findViewById(R.id.msg_to_edittext);
 
         msgSubjectEditText = (EditText) findViewById(R.id.message_subject_editext);
+        msgSubjectEditText.setText("HELP!!!");
 
         msgBodyEditText = (EditText) findViewById(R.id.msg_compose_edittext);
 
@@ -105,6 +106,18 @@ public class StartGmail extends AppCompatActivity implements EasyPermissions.Per
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(msgToEditText.getText().toString().trim().length()==0 || msgSubjectEditText.getText().toString().trim().length()==0)
+                {
+                    final Snackbar snackbar = Snackbar.make(fab,"Enter recipient's email and subject",Snackbar.LENGTH_LONG);
+                    snackbar.setAction("OK", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            snackbar.dismiss();
+                        }
+                    });
+                    snackbar.show();
+                    return;
+                }
                 fab.setEnabled(false);
                 getResultsFromApi();
                 fab.setEnabled(true);

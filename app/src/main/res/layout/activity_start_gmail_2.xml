@@ -9,6 +9,7 @@
     tools:context="com.wordpress.farhantanvirutshaw.lostsurvive.StartGmail">
 
     <include
+        android:id="@+id/gmail_appbar"
         layout="@layout/my_toolbar"/>
 
 

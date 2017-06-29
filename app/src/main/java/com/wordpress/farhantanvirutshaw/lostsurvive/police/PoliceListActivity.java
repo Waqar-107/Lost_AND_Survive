@@ -43,6 +43,7 @@ public class PoliceListActivity extends AppCompatActivity {
     private static final String LOG_TAG = PoliceListActivity.class.getSimpleName();
     private static final String POLICE_REQUEST_URL = "https://maps.googleapis.com/maps/api/place/search/json?";
     private static final String API_KEY = "AIzaSyBqJ1_AhhhS81n1pQ4PtCqm__3MlH2HAOE";
+
     String temp = "https://maps.googleapis.com/maps/api/place/search/json?location=37.785835,-122.406418&rankby=distance&types=police&sensor=false&key=AIzaSyBqJ1_AhhhS81n1pQ4PtCqm__3MlH2HAOE";
 
     private PoliceAdapter mAdapter;
@@ -87,8 +88,8 @@ public class PoliceListActivity extends AppCompatActivity {
                 else
                 {
                     PoliceStation clickedPoliceStation = mAdapter.getItem(i);
-                    Utils.desLatitude = clickedPoliceStation.getmLatitude();
-                    Utils.desLongitude = clickedPoliceStation.getmLongitude();
+                    Utils.setDesLatitude(clickedPoliceStation.getmLatitude());
+                    Utils.setDesLongitude(clickedPoliceStation.getmLongitude());
                     startActivity(new Intent(PoliceListActivity.this, PoliceMapsActivity.class));
                 }
             }
@@ -97,12 +98,8 @@ public class PoliceListActivity extends AppCompatActivity {
         Uri baseUri = Uri.parse(POLICE_REQUEST_URL);
         Uri.Builder uriBuilder = baseUri.buildUpon();
 
-        SharedPreferences sharedPreferences;
-        SharedPreferences.Editor sharedEditor;
-        sharedPreferences = getSharedPreferences("MyData", MODE_PRIVATE);
-
-        uriBuilder.appendQueryParameter("location",sharedPreferences.getString(Constants.PREF_KEY_LATITUDE, "0.0")+ "," +
-        sharedPreferences.getString(Constants.PREF_KEY_LONGITUDE,"0.0"));
+        uriBuilder.appendQueryParameter("location",Utils.getCurrentLatitude()+ "," +
+        Utils.getCurrentLongitude());
 
 
         uriBuilder.appendQueryParameter("rankby","distance");
@@ -184,7 +181,7 @@ public class PoliceListActivity extends AppCompatActivity {
                     Log.e(LOG_TAG,"Error response Code " +  urlConnection.getResponseCode());
                 }
             } catch (IOException e) {
-                Log.e(LOG_TAG, "Problem retrieving the earthquake JSON results.", e);
+                Log.e(LOG_TAG, "Problem retrieving the JSON results.", e);
             }
             finally {
                 if(urlConnection != null)

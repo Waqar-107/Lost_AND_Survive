@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
-import android.location.LocationListener;
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -45,7 +44,6 @@ import java.nio.charset.Charset;
 public class GPSTempActivity extends AppCompatActivity {
 
     LocationManager mLocationManager;
-    LocationListener mLocationListener;
     protected TextView mLatitudeText;
     protected TextView mLongitudeText;
     protected TextView mLocationText;
@@ -98,8 +96,6 @@ public class GPSTempActivity extends AppCompatActivity {
                 }
                 else
                 {
-                    Utils.setCurrentLatitude(currenntLatitude);
-                    Utils.setCurrentLongitude(currentLongitude);
                     startActivity(new Intent(GPSTempActivity.this, PoliceListActivity.class));
                 }
             }
@@ -115,20 +111,40 @@ public class GPSTempActivity extends AppCompatActivity {
             // for ActivityCompat#requestPermissions for more details.
             return;
         }
+
         Location location = mLocationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+
         Uri baseUri = Uri.parse(LOCATION_REQUEST_URL);
         Uri.Builder builder = baseUri.buildUpon();
 
 
-        if(location != null)
-        {
+        if(location != null) {
             currenntLatitude = location.getLatitude();
             currentLongitude = location.getLongitude();
             mLatitudeText.setText(Double.toString(currenntLatitude));
             mLongitudeText.setText(Double.toString(currentLongitude));
-            builder.appendQueryParameter("latlng",Double.toString(currenntLatitude)+","+Double.toString(currentLongitude));
-            builder.appendQueryParameter("sensor","true");
-            new MyAsyncTask().execute(builder.toString());
+            Utils.setCurrentLatitude(currenntLatitude);
+            Utils.setCurrentLongitude(currentLongitude);
+            builder.appendQueryParameter("latlng", Double.toString(currenntLatitude) + "," + Double.toString(currentLongitude));
+            builder.appendQueryParameter("sensor", "true");
+            if (isDeviceOnline())
+            {
+                new MyAsyncTask().execute(builder.toString());
+            }
+            else
+            {
+                final Snackbar snackbar = Snackbar.make(getWindow().getDecorView().findViewById(android.R.id.content), "Couldn't retrieve location name\nCheck internet", Snackbar.LENGTH_LONG);
+                View snackbarView = snackbar.getView();
+                TextView textView = (TextView) snackbarView.findViewById(android.support.design.R.id.snackbar_text);
+                textView.setLines(2);
+                snackbar.setAction("OK", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        snackbar.dismiss();
+                    }
+                });
+                snackbar.show();
+            }
         }
     }
 
@@ -143,7 +159,7 @@ public class GPSTempActivity extends AppCompatActivity {
 
 
 
-    class MyAsyncTask extends AsyncTask<String,Void,String>
+    private class MyAsyncTask extends AsyncTask<String,Void,String>
     {
         @Override
         protected String doInBackground(String... strings) {
@@ -245,31 +261,9 @@ public class GPSTempActivity extends AppCompatActivity {
         {
             case R.id.refresh:
                 View view = getWindow().getDecorView().findViewById(android.R.id.content);
-                if(!isDeviceOnline() && !isGPSEnabled())
+                if(!isGPSEnabled())
                 {
-                    final Snackbar snackbar = Snackbar.make(view,"Requires Internet & GPS",Snackbar.LENGTH_LONG);
-                    snackbar.setAction("OK", new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            snackbar.dismiss();
-                        }
-                    });
-                    snackbar.show();
-                }
-                else if(!isDeviceOnline())
-                {
-                    final Snackbar snackbar = Snackbar.make(view,"Check Internet Connection",Snackbar.LENGTH_LONG);
-                    snackbar.setAction("OK", new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            snackbar.dismiss();
-                        }
-                    });
-                    snackbar.show();
-                }
-                else if(!isGPSEnabled())
-                {
-                    final Snackbar snackbar = Snackbar.make(view,"Enable GPS",Snackbar.LENGTH_LONG);
+                    final Snackbar snackbar = Snackbar.make(view,"Requires GPS",Snackbar.LENGTH_LONG);
                     snackbar.setAction("OK", new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {

@@ -17,14 +17,13 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.TextUtils;
-import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
@@ -38,12 +37,9 @@ import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.client.util.ExponentialBackOff;
 import com.google.api.services.gmail.Gmail;
 import com.google.api.services.gmail.GmailScopes;
-import com.google.api.services.gmail.model.Label;
-import com.google.api.services.gmail.model.ListLabelsResponse;
 import com.wordpress.farhantanvirutshaw.lostsurvive.gmail.SendMessage;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -58,19 +54,20 @@ import static com.wordpress.farhantanvirutshaw.lostsurvive.gmail.SendMessage.sen
 
 public class StartGmail extends AppCompatActivity implements EasyPermissions.PermissionCallbacks {
 
+    EditText composeText;
 
     static final int REQUEST_ACCOUNT_PICKER = 1000;
     static final int REQUEST_AUTHORIZATION = 1001;
     static final int REQUEST_GOOGLE_PLAY_SERVICES = 1002;
     static final int REQUEST_PERMISSION_GET_ACCOUNTS = 1003;
-    private static final String BUTTON_TEXT = "Call Gmail API";
+
     private static final String PREF_ACCOUNT_NAME = "accountName";
-    private static final String[] SCOPES = {GmailScopes.GMAIL_LABELS ,GmailScopes.GMAIL_SEND};
+    private static final String[] SCOPES = {GmailScopes.GMAIL_SEND};
 
     GoogleAccountCredential mCredential;
     ProgressDialog mProgress;
-    private TextView mOutputText;
-    private Button mCallApiButton;
+
+
     Toolbar gmailToolbar;
     EditText msgSubjectEditText;
     EditText msgBodyEditText;
@@ -87,6 +84,11 @@ public class StartGmail extends AppCompatActivity implements EasyPermissions.Per
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_gmail_2);
+
+        composeText = (EditText) findViewById(R.id.msg_compose_edittext);
+
+        composeText.setText("\n"+composeText.getText() + "Hi, this is ..." + "\n I am lost,please help me immediately" + "\nMy Phone Number:" + "\nLocation information:");
+
         gmailToolbar = (Toolbar) findViewById(R.id.activity_start_gmail_toolbar);
         setSupportActionBar(gmailToolbar);
 
@@ -97,7 +99,6 @@ public class StartGmail extends AppCompatActivity implements EasyPermissions.Per
         msgBodyEditText = (EditText) findViewById(R.id.msg_compose_edittext);
 
 
-        LinearLayout activityLayout = (LinearLayout) findViewById(R.id.activity_start_gmail_root);
 
         fab = (FloatingActionButton) findViewById(R.id.fab);
 
@@ -105,31 +106,10 @@ public class StartGmail extends AppCompatActivity implements EasyPermissions.Per
             @Override
             public void onClick(View view) {
                 fab.setEnabled(false);
-//                mCallApiButton.setEnabled(false);
-//                mOutputText.setText("");
                 getResultsFromApi();
-//                mCallApiButton.setEnabled(true);
                 fab.setEnabled(true);
             }
         });
-
-//        mCallApiButton = (Button) findViewById(R.id.btn_call_gmail_api);
-//        mCallApiButton.setText(BUTTON_TEXT);
-//        mCallApiButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                mCallApiButton.setEnabled(false);
-//                mOutputText.setText("");
-//                getResultsFromApi();
-//                mCallApiButton.setEnabled(true);
-//            }
-//        });
-
-//        mOutputText = (TextView) findViewById(R.id.tview_label);
-
-//        mOutputText.setMovementMethod(new ScrollingMovementMethod());
-//        mOutputText.setText(
-//                "Click the \'" + BUTTON_TEXT + "\' button to test the API.");
 
 
         mProgress = new ProgressDialog(this);
@@ -179,14 +159,11 @@ public class StartGmail extends AppCompatActivity implements EasyPermissions.Per
                         msgSubjectEditText.getText().toString(),
                         msgBodyEditText.getText().toString());
 
-                new MakeRequestTask2(mCredential).execute(message);
+                new MyGmailTask(mCredential).execute(message);
             } catch (MessagingException e) {
                 e.printStackTrace();
             }
 
-
-
-//            new MakeRequestTask(mCredential).execute();
         }
     }
 
@@ -390,98 +367,12 @@ public class StartGmail extends AppCompatActivity implements EasyPermissions.Per
      * An asynchronous task that handles the Gmail API call.
      * Placing the API calls in their own task ensures the UI stays responsive.
      */
-    private class MakeRequestTask extends AsyncTask<Void, Void, List<String>> {
+
+    private class MyGmailTask extends AsyncTask<MimeMessage, Void, List<String>> {
         private Gmail mService = null;
         private Exception mLastError = null;
 
-        MakeRequestTask(GoogleAccountCredential credential) {
-            HttpTransport transport = AndroidHttp.newCompatibleTransport();
-            JsonFactory jsonFactory = JacksonFactory.getDefaultInstance();
-            mService = new Gmail.Builder(
-                    transport, jsonFactory, credential)
-                    .setApplicationName("Gmail API Android Quickstart")
-                    .build();
-        }
-
-        /**
-         * Background task to call Gmail API.
-         *
-         * @param params no parameters needed for this task.
-         */
-        @Override
-        protected List<String> doInBackground(Void... params) {
-            try {
-                return getDataFromApi();
-            } catch (Exception e) {
-                mLastError = e;
-                cancel(true);
-                return null;
-            }
-        }
-
-        /**
-         * Fetch a list of Gmail labels attached to the specified account.
-         *
-         * @return List of Strings labels.
-         * @throws IOException
-         */
-        private List<String> getDataFromApi() throws IOException {
-            // Get the labels in the user's account.
-            String user = "me";
-            List<String> labels = new ArrayList<String>();
-            ListLabelsResponse listResponse =
-                    mService.users().labels().list(user).execute();
-            for (Label label : listResponse.getLabels()) {
-                labels.add(label.getName());
-            }
-            return labels;
-        }
-
-
-        @Override
-        protected void onPreExecute() {
-//            mOutputText.setText("");
-            mProgress.show();
-        }
-
-        @Override
-        protected void onPostExecute(List<String> output) {
-            mProgress.hide();
-            if (output == null || output.size() == 0) {
-//                mOutputText.setText("No results returned.");
-            } else {
-                output.add(0, "Data retrieved using the Gmail API:");
-//                mOutputText.setText(TextUtils.join("\n", output));
-            }
-        }
-
-        @Override
-        protected void onCancelled() {
-            mProgress.hide();
-            if (mLastError != null) {
-                if (mLastError instanceof GooglePlayServicesAvailabilityIOException) {
-                    showGooglePlayServicesAvailabilityErrorDialog(
-                            ((GooglePlayServicesAvailabilityIOException) mLastError)
-                                    .getConnectionStatusCode());
-                } else if (mLastError instanceof UserRecoverableAuthIOException) {
-                    startActivityForResult(
-                            ((UserRecoverableAuthIOException) mLastError).getIntent(),
-                            StartGmail.REQUEST_AUTHORIZATION);
-                } else {
-//                    mOutputText.setText("The following error occurred:\n"
-//                            + mLastError.getMessage());
-                }
-            } else {
-//                mOutputText.setText("Request cancelled.");
-            }
-        }
-    }
-
-    private class MakeRequestTask2 extends AsyncTask<MimeMessage, Void, List<String>> {
-        private Gmail mService = null;
-        private Exception mLastError = null;
-
-        MakeRequestTask2(GoogleAccountCredential credential) {
+        MyGmailTask(GoogleAccountCredential credential) {
             HttpTransport transport = AndroidHttp.newCompatibleTransport();
             JsonFactory jsonFactory = JacksonFactory.getDefaultInstance();
             mService = new Gmail.Builder(
@@ -540,36 +431,15 @@ public class StartGmail extends AppCompatActivity implements EasyPermissions.Per
             return null;
         }
 
-        private List<String> getDataFromApi() throws IOException {
-            // Get the labels in the user's account.
-            String user = "me";
-            List<String> labels = new ArrayList<String>();
-            ListLabelsResponse listResponse =
-                    mService.users().labels().list(user).execute();
-            for (Label label : listResponse.getLabels()) {
-                labels.add(label.getName());
-            }
-            return labels;
-        }
 
         @Override
         protected void onPreExecute() {
-//            mOutputText.setText("");
             mProgress.show();
         }
 
         @Override
         protected void onPostExecute(List<String> output) {
             mProgress.hide();
-
-
-            if (output == null || output.size() == 0) {
-//                mOutputText.setText("No results returned.");
-
-            } else {
-                output.add(0, "Data retrieved using the Gmail API:");
-//                mOutputText.setText(TextUtils.join("\n", output));
-            }
         }
 
         @Override
@@ -585,8 +455,6 @@ public class StartGmail extends AppCompatActivity implements EasyPermissions.Per
                             ((UserRecoverableAuthIOException) mLastError).getIntent(),
                             StartGmail.REQUEST_AUTHORIZATION);
                 } else {
-//                    mOutputText.setText("The following error occurred:\n"
-//                            + mLastError.getMessage());
                     final Snackbar snackbar = Snackbar.make(fab,"Error occurred,can't proceed",Snackbar.LENGTH_LONG);
                     snackbar.setAction("OK", new View.OnClickListener() {
                         @Override
@@ -598,7 +466,6 @@ public class StartGmail extends AppCompatActivity implements EasyPermissions.Per
 
                 }
             } else {
-//                mOutputText.setText("Request cancelled.");
                 final Snackbar snackbar = Snackbar.make(fab,"Request Canceled",Snackbar.LENGTH_LONG);
                 snackbar.setAction("OK", new View.OnClickListener() {
                     @Override

@@ -1,30 +1,22 @@
 package com.wordpress.farhantanvirutshaw.lostsurvive;
 
-import android.*;
 import android.Manifest;
-import android.accounts.AccountManager;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Build;
-import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -34,11 +26,9 @@ public class MainActivity extends AppCompatActivity {
 
     Toolbar toolbar;
 
-    private AlertDialog mInternetDialog;
     LocationManager mLocationManager;
     ConnectivityManager connMgr;
-    private AlertDialog mGPSDialog;
-    private static final int WIFI_ENABLE_REQUEST = 0x1006;
+
     private static final int GPS_ENABLE_REQUEST = 0x1001;
     static final int REQUEST_GOOGLE_PLAY_SERVICES = 1002;
 
@@ -60,36 +50,10 @@ public class MainActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.main_activity_appbar);
         setSupportActionBar(toolbar);
 
-
-
-
-
-//        seUpViews();
     }
 
 
-//    private void seUpViews() {
-//        TextView mountainTextView = (TextView) findViewById(R.id.text_view_mountain);
-//        TextView jungleTextView  = (TextView) findViewById(R.id.text_view_jungle);
-//        TextView desertTextView  = (TextView) findViewById(R.id.text_view_desert);
-//        TextView islandTextView =  (TextView) findViewById(R.id.text_view_island);
-//        TextView iceTextView =  (TextView) findViewById(R.id.text_view_ice);
-//        TextView foreignTextView =  (TextView) findViewById(R.id.text_view_fland);
-//
-//        Typeface mountainFont = Typeface.createFromAsset(getAssets(), "fonts/font_mountain.ttf");
-//        Typeface jungleFont = Typeface.createFromAsset(getAssets(),"fonts/font_jungle2.otf");
-//        Typeface desertFont = Typeface.createFromAsset(getAssets(),"fonts/font_desert.ttf");
-//        Typeface islandFont = Typeface.createFromAsset(getAssets(), "fonts/font_island2.ttf");
-//        Typeface iceFont = Typeface.createFromAsset(getAssets(), "fonts/font_ice.ttf");
-//        Typeface foreignfont = Typeface.createFromAsset(getAssets(), "fonts/font_foreign.ttf");
-//
-//        mountainTextView.setTypeface(mountainFont);
-//        jungleTextView.setTypeface(jungleFont);
-//        desertTextView.setTypeface(desertFont);
-//        islandTextView.setTypeface(islandFont);
-//        iceTextView.setTypeface(iceFont);
-//        foreignTextView.setTypeface(foreignfont);
-//    }
+
 
 
     @Override
@@ -134,15 +98,11 @@ public class MainActivity extends AppCompatActivity {
                 if (!isGooglePlayServicesAvailable()) {
                     acquireGooglePlayServices();
                 }
-                if(!isDeviceOnline())
-                {
-                    showNoInternetDialog();
-                }
                 if(!isGPSEnabled())
                 {
                     showGPSDisabledDialog();
                 }
-                if(isDeviceOnline() && isGPSEnabled() && isGooglePlayServicesAvailable())
+                if(isGPSEnabled() && isGooglePlayServicesAvailable())
                 {
                     Intent intent = new Intent(MainActivity.this, GPSTempActivity.class);
                     startActivity(intent);
@@ -162,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, String[] permissions,  int[] grantResults) {
         switch (requestCode)
         {
             case REQUEST_CODE_ASK_ACCESS_FINE_PERMISSIONS:
@@ -171,17 +131,12 @@ public class MainActivity extends AppCompatActivity {
                     if (!isGooglePlayServicesAvailable()) {
                         acquireGooglePlayServices();
                     }
-                    if(!isDeviceOnline())
-                    {
-                        showNoInternetDialog();
-                    }
                     if(!isGPSEnabled())
                     {
                         showGPSDisabledDialog();
                     }
-                    if(isDeviceOnline() && isGPSEnabled() && isGooglePlayServicesAvailable())
+                    if( isGPSEnabled() && isGooglePlayServicesAvailable())
                     {
-//                        Intent intent = new Intent(MainActivity.this, GPSTrackerActivity.class);
                         Intent intent = new Intent(MainActivity.this, GPSTempActivity.class);
                         startActivity(intent);
 
@@ -213,37 +168,24 @@ public class MainActivity extends AppCompatActivity {
                 snackbar.show();
 
             } else {
-//                Intent intent = new Intent(MainActivity.this, GPSTrackerActivity.class);
                 Intent intent = new Intent(MainActivity.this, GPSTempActivity.class);
                 startActivity(intent);
             }
         }
-        if (requestCode == GPS_ENABLE_REQUEST || requestCode==WIFI_ENABLE_REQUEST) {
+        if (requestCode == GPS_ENABLE_REQUEST ) {
 
             if (mLocationManager == null) {
                 mLocationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
             }
-            if(connMgr == null)
-            {
-                connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-            }
-            NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
 
-
-            if(mLocationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) && networkInfo!= null && networkInfo.isConnected() )
+            if(mLocationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) )
             {
-//                Intent intent = new Intent(MainActivity.this, GPSTrackerActivity.class);
                 Intent intent = new Intent(MainActivity.this, GPSTempActivity.class);
                 startActivity(intent);
-                return;
             }
-            else if(requestCode == GPS_ENABLE_REQUEST && !(mLocationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)))
+            else if( !(mLocationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)))
             {
                 showGPSDisabledDialog();
-            }
-            else if(requestCode == WIFI_ENABLE_REQUEST && (networkInfo==null || !networkInfo.isConnected()) )
-            {
-                showNoInternetDialog();
             }
 
         }else {
@@ -252,12 +194,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private boolean isDeviceOnline() {
-        ConnectivityManager connMgr =
-                (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
-        return (networkInfo != null && networkInfo.isConnected());
-    }
 
     private boolean isGPSEnabled()
     {
@@ -270,29 +206,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void showNoInternetDialog() {
-
-        if (mInternetDialog != null && mInternetDialog.isShowing()) {
-            return;
-        }
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Internet Disabled!");
-        builder.setMessage("No active Internet connection found.");
-        builder.setPositiveButton("Turn On", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                Intent gpsOptionsIntent = new Intent(android.provider.Settings.ACTION_WIFI_SETTINGS);
-                startActivityForResult(gpsOptionsIntent, WIFI_ENABLE_REQUEST);
-            }
-        }).setNegativeButton("No, Just Exit", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-
-            }
-        });
-        mInternetDialog = builder.create();
-        mInternetDialog.show();
-    }
 
     public void showGPSDisabledDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -309,7 +222,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        mGPSDialog = builder.create();
+        AlertDialog mGPSDialog = builder.create();
         mGPSDialog.show();
     }
 

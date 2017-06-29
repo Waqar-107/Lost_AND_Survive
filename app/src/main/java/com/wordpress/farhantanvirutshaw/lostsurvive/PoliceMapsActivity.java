@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -41,10 +42,8 @@ public class PoliceMapsActivity extends FragmentActivity implements OnMapReadyCa
 
     private GoogleMap mMap;
     Button mapTypeBtn;
-    private double mLatitude;
-    private double mLongitude;
-    SharedPreferences sharedPreferences;
-    SharedPreferences.Editor sharedEditor;
+    private double mLatitude=0.0;
+    private double mLongitude=0.0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +51,6 @@ public class PoliceMapsActivity extends FragmentActivity implements OnMapReadyCa
         setContentView(R.layout.activity_police_maps);
         mapTypeBtn = (Button) findViewById(R.id.maptype_btn);
 
-        sharedPreferences = getSharedPreferences("MyData", MODE_PRIVATE);
 
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
@@ -62,8 +60,8 @@ public class PoliceMapsActivity extends FragmentActivity implements OnMapReadyCa
     }
 
     protected void setLocation() {
-        mLatitude = Double.parseDouble(sharedPreferences.getString(Constants.PREF_KEY_LATITUDE, "0.0"));
-        mLongitude = Double.parseDouble(sharedPreferences.getString(Constants.PREF_KEY_LONGITUDE, "0.0"));
+        mLatitude = Utils.getCurrentLatitude();
+        mLongitude = Utils.getCurrentLongitude();
 
     }
 
@@ -181,7 +179,7 @@ public class PoliceMapsActivity extends FragmentActivity implements OnMapReadyCa
             br.close();
 
         }catch(Exception e){
-            Log.d("Exception while downloading url", e.toString());
+            Toast.makeText(this, "Error while downloading", Toast.LENGTH_SHORT).show();
         }finally{
             iStream.close();
             urlConnection.disconnect();
@@ -204,6 +202,7 @@ public class PoliceMapsActivity extends FragmentActivity implements OnMapReadyCa
                 data = downloadUrl(url[0]);
             }catch(Exception e){
                 Log.d("Background Task",e.toString());
+                Toast.makeText(PoliceMapsActivity.this, "Error fetching data from server", Toast.LENGTH_SHORT).show();
             }
             return data;
         }

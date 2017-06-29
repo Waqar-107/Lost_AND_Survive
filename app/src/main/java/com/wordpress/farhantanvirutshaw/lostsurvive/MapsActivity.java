@@ -25,10 +25,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private GoogleMap mMap;
     Button mapTypeBtn;
-    private double mLatitude;
-    private double mLongitude;
-    SharedPreferences sharedPreferences;
-    SharedPreferences.Editor sharedEditor;
+    private double mLatitude=0.0;
+    private double mLongitude=0.0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +34,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         setContentView(R.layout.activity_maps);
         mapTypeBtn = (Button) findViewById(R.id.maptype_btn);
 
-        sharedPreferences = getSharedPreferences("MyData", MODE_PRIVATE);
+
 
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
@@ -46,8 +44,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     protected void setLocation() {
-        mLatitude = Double.parseDouble(sharedPreferences.getString(Constants.PREF_KEY_LATITUDE, "0.0"));
-        mLongitude = Double.parseDouble(sharedPreferences.getString(Constants.PREF_KEY_LONGITUDE, "0.0"));
+        mLatitude = Utils.getCurrentLatitude();
+        mLongitude = Utils.getCurrentLongitude();
 
     }
 

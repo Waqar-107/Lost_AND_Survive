@@ -30,13 +30,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".StartGmail" />
-
         <activity
-            android:screenOrientation="portrait"
-            android:name=".GPSTrackerActivity" />
+            android:name=".StartGmail" />
 
-        <activity android:name=".BaseActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -63,7 +59,9 @@
             android:screenOrientation="portrait"
             android:name=".PoliceMapsActivity"/>
 
-        <activity android:name=".GPSTempActivity"/>
+        <activity
+            android:screenOrientation="portrait"
+            android:name=".GPSTempActivity"/>
 
     </application>
 

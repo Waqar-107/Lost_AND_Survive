@@ -203,21 +203,24 @@ public class PoliceListActivity extends AppCompatActivity {
             String vicinity = "";
 
             try {
-                JSONObject root = new JSONObject(jsonResponse);
-                JSONArray resultsArray = root.getJSONArray("results");
-                for(int i=0;i<resultsArray.length();i++)
+                if(jsonResponse != null)
                 {
-                    JSONObject currentObject = resultsArray.getJSONObject(i);
-                    JSONObject geoObject = currentObject.getJSONObject("geometry");
-                    JSONObject locationObject = geoObject.getJSONObject("location");
-                    lat = locationObject.getDouble("lat");
-                    lng = locationObject.getDouble("lng");
-                    name = currentObject.getString("name");
-                    vicinity = currentObject.getString("vicinity");
-                    double totalDistance = PoliceStation.distance(lat,lng, Utils.getCurrentLatitude(),Utils.getCurrentLongitude());
-                    arrayList.add(new PoliceStation(name,lat,lng,vicinity,totalDistance));
-                }
+                    JSONObject root = new JSONObject(jsonResponse);
+                    JSONArray resultsArray = root.getJSONArray("results");
+                    for(int i=0;i<resultsArray.length();i++)
+                    {
+                        JSONObject currentObject = resultsArray.getJSONObject(i);
+                        JSONObject geoObject = currentObject.getJSONObject("geometry");
+                        JSONObject locationObject = geoObject.getJSONObject("location");
+                        lat = locationObject.getDouble("lat");
+                        lng = locationObject.getDouble("lng");
+                        name = currentObject.getString("name");
+                        vicinity = currentObject.getString("vicinity");
+                        double totalDistance = PoliceStation.distance(lat,lng, Utils.getCurrentLatitude(),Utils.getCurrentLongitude());
+                        arrayList.add(new PoliceStation(name,lat,lng,vicinity,totalDistance));
+                    }
 
+                }
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -228,11 +231,18 @@ public class PoliceListActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(ArrayList<PoliceStation> policeStations) {
-            mEmptyStateTextView.setText("No nearby police stations found");
+
             super.onPostExecute(policeStations);
-            mAdapter.addAll(policeStations);
+
             ProgressBar loadingIndicator = (ProgressBar) findViewById(R.id.loading_indicator);
             loadingIndicator.setVisibility(View.GONE);
+            mEmptyStateTextView.setText("No nearby police stations found");
+            mAdapter.clear();
+            if(policeStations != null && !policeStations.isEmpty())
+            {
+                mAdapter.addAll(policeStations);
+            }
+
         }
 
 

@@ -2,4 +2,219 @@
     <string name="app_name">Lost &amp; Survive</string>
     <string name="not_available">Not Available</string>
     <string name="title_activity_maps">Map</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="desert_pre">1. Take clothes that minimizes sweat loss. Wear white or others that is light in color.\n
+2. Take sunglasses hat and gloves if you have any.\n
+3. Store your water in different cans, so that if leaked the total water won’t get wasted\n
+4. Take foods that includes salt and potassium
+Food is not a priority in a desert emergency. If you are out of water, only eat the minimum required to function.\n
+5. Before setting out for desert pack the survival equipment,
+Ropes, blankets, water purification tablet, knife etc.</string>
+
+    <string name="desert_post">1. Become nocturnal. It’s cold at night so walking would cause less sweat.
+This single decision will save your body about three liters (three quarts) of water per day.\n
+2. Stay in shelter during day.\n
+3. signal for help. Make a fire at day to use the smoke, use a torch at night. (photo)\n
+4. Find water sources. If there\'s been a rainstorm recently, you may find pockets of water in rock outcrops or flat stone surfaces. More often, you\'ll need to search for areas with possible groundwater:\n
+    Follow animal tracks leading downhill, birds circling around something, or even flying insects.\n
+    Walk to the greenest vegetation you can see, especially large plants with wide leaves.\n
+    Follow canyons or dry river beds upstream, and look for a depression, especially on the outside edge of a bend.\n
+    Look for a slope of hard, non-porous rock, where rainwater would run into the soil. Dig in the sand or soil at the base of this slope.\n
+    In developed areas, look for buildings or troughs. When the sun is low, its glare will reflect off distant metal objects and water collection structures.\n
+5. stay away from animals and cactuses.</string>
+
+    <string name="island_pre">
+        1. Look for others if you had a boat or plane crush.\n
+2. Get everything you can gather, water, food supply cloths, knifes, matches etc.\n
+3. Find a source of drinking water and source of food.\n
+4. Make a shelter. (see how to make one)\n
+5. stay in the beach and give signal to get help.\n
+Write something in the sand in large scale so that any sea-plane notices. Light up fire and create smoke, if there is a mountain light up the fire in the top of the mountain like the story “Fire on The Mountain” by William Golding.\n
+6. Try to purify the water to avoid water contaminated diseases (go to details).\n
+7. Trap animals for food using a deadfall trap. (go to details) \n
+8. Try to catch some fish for protein. (go to details)\n
+    </string>
+
+
+    <string name="mountain_pre">
+        1. Make a detailed travel plan and make sure that each person traveling with  you has a copy of it.  This plan should also include meeting points in case something happens that causes you to get separated from the group.\n
+2. Aside from having first aid supplies, one or more people in the group should be trained in how to handle medical emergencies. It will also be helpful if this person knows how to use natural medicines.\n
+ 3. Try to travel with at least 2 other people. It is not advisable to travel alone.\n
+ 4. Everyone in the hiking party should have their own backpack equipped with basic survival supplies. This should include a compass, map, mirror, small first aid kit, whistle, flashlight, a fully charged cell phone or satellite phone (with emergency phone numbers), and bright colored material to attract aerial rescuers.\n
+5. It is important to always bring food or water with you even through it is only a day hike.\n
+ 6. Each member of the party should have a compact water filter system and water purification tablets.\n
+ 7. Bring an emergency blanket and a tarp to help you stay warm.\n
+8. Pack the correct clothing for the time of year. If it is cool or cold, then pack clothing that can be worn in layers to put on or take off as necessary.\n
+9. Bring the correct type of gear for the time of year. This could include snowshoes, cross country skies, insulated boots or ice grippers for the boots.\n
+ 10. If you are going to be in a snowy country,  be sure to pack your emergency beacon and emergency airbag. When activated, the airbag will give you more buoyancy, which helps to keep you on top of the avalanche.\n
+    </string>
+
+
+    <string name="mountain_post">
+        First, DO NOT PANIC!\n
+You must stop, stay calm, stay put and make your plan.\n
+Sit down, eat and drink something. This will calm you down and give you a chance to make a plan.\n
+Panicking can only make it worse for you.  The last thing you want to do is go thrashing around further away from a viable trail or deeper into the mountain wilderness.  If it is getting late in the day and you are in a safe area, it may be best to make camp and get a good night’s rest before starting again in the morning.\n
+If you feel you are lost do not start running or walking faster than your normal pace.   If you do, you risk the chance of falling in the mountainous terrain.\n
+Never split from the group or split the group up. If you do so, the rescue party will be looking for two groups of people instead of one.
+
+
+    </string>
+
+    <string name="jungle_pre">
+        1. Take waterproof matches and lighter.\n
+2. Ointment for insect bites specially for mosquitos.\n
+3. Take some medicines according to your need.\n
+4. Extra batteries, power banks.\n
+5. Sleeping bag, tents.\n
+6. Try to wear waterproof shoes.\n
+7. Carry a whistle, obviously you are not travelling alone, if you get lost somehow the whistle will come in handy.
+    </string>
+
+    <string name="jungle_post">
+        1. Do not touch the wildlife unless you know about them.\n
+2. Find a source of drinking water and source of food.\n
+3. Find a shelter. (see how to make one)\n
+4. Travel in one direction during daylight hours.\n
+5. Try to purify the water to avoid water contaminated diseases (go to details).\n
+6. Trap animals for food using a deadfall trap. (go to details) \n
+7. Try to catch some fish for protein. (go to details)
+    </string>
+
+
+    <!--common info-->
+    <dimen name="tipsTextSize">15sp</dimen>
+    <dimen name="tipsMargin">5dp</dimen>
+    <dimen name="subWorkMarginLeft">10dp</dimen>
+    <dimen name="space">25dp</dimen>
+    <dimen name="imgMargin">10dp</dimen>
+    <string name="pre">Pre-travelling</string>
+    <string name="post">Survival</string>
+    <!--common info-->
+
+
+    <!--pre-travelling tips of desert-->
+    <string name="preDes1">1. Take clothes that minimizes sweat loss. Wear white or others that is light in color</string>
+    <string name="preDes2">2. Take sunglasses hat and gloves if you have any</string>
+    <string name="preDes3">3. Store your water in different cans, so that if leaked the total water won’t get wasted</string>
+    <string name="preDes4">4. Take foods that includes salt and potassium
+Food is not a priority in a desert emergency. If you are out of water, only eat the minimum required to function</string>
+    <string name="preDes5">5. Before setting out for desert pack the survival equipment,
+Ropes, blankets, water purification tablet, knife etc.</string>
+
+    <!--pre-travelling tips of desert-->
+
+
+    <!--survival in desert-->
+    <string name="postDes1">1. Become nocturnal. It’s cold at night so walking would cause less sweat.
+    This single decision will save your body about three liters (three quarts) of water per day.</string>
+    <string name="postDes2">2. Stay in shelter during day</string>
+    <string name="postDes3">3. Signal for help. Make a fire at day to use the smoke, use a torch at night</string>
+    <string name="postDes4">4. Find water sources. If there has been a rainstorm recently, you may find pockets of water in rock outcrops or flat stone surfaces. More often, you will need to search for areas with possible groundwater:
+
+    Follow animal tracks leading downhill, birds circling around something, or even flying insects.
+    Walk to the greenest vegetation you can see, especially large plants with wide leaves.
+    Follow canyons or dry river beds upstream, and look for a depression, especially on the outside edge of a bend.
+    Look for a slope of hard, non-porous rock, where rainwater would run into the soil. Dig in the sand or soil at the base of this slope.
+    In developed areas, look for buildings or troughs. When the sun is low, its glare will reflect off distant metal objects and water collection structures</string>
+    <string name="postDes5">5. Stay away from animals and cactuses</string>
+    <!--survival in desert-->
+
+
+    <!--pre-jungle-->
+    <string name="preJungle1">1. Take waterproof matches and lighter</string>
+    <string name="preJungle2">2. Ointment for insect bites specially for mosquito</string>
+    <string name="preJungle3">3. Take some medicines according to your need</string>
+    <string name="preJungle4">4. Extra batteries, power banks</string>
+    <string name="preJungle5">5. Take sleeping bag, tents</string>
+    <string name="preJungle6">6. Try to wear waterproof shoes</string>
+    <string name="preJungle7">7. Carry a whistle, obviously you are not travelling alone, if you get lost somehow the whistle will come in handy</string>
+    <!--pre-jungle-->
+
+
+    <!--survive-jungle-->
+    <string name="postJungle1">1. Do not touch the wildlife unless you know about them</string>
+    <string name="postJungle2">2. Find a source of drinking water and source of food</string>
+    <string name="postJungle3">3. Find a shelter</string>
+    <string name="postJungle4">4. Travel in one direction during daylight hours</string>
+    <string name="postJungle5">5. Try to purify the water to avoid water contaminated diseases</string>
+    <string name="postJungle6">6. Trap animals for food using a deadfall trap</string>
+    <string name="postJungle7">7. Try to catch some fish for protein</string>
+
+    <string name="fishA">i) Get a long bamboo stalk to use as your spear</string>
+    <string name="fishB">ii) Use a knife to cut cross hairs into the tip so tht the end of the spear separates into four individual prongs</string>
+    <string name="fishC">iii) Seperate the prongs with vine to keep them apart</string>
+    <string name="fishD">iv) Stand on a rock overlooking the river or stream</string>
+    <string name="fishE">v) Wait for a fish to come within striking range, then jab at it with the spear to catch it</string>
+
+    <string name="shelterA">i) Find a large branch and lean one end up onto a tree</string>
+    <string name="shelterB">ii) Place smaller branches at 45 degree angles along the length of the large branch</string>
+    <string name="shelterC">iii) Cover the entire structure with leaves and foliage</string>
+
+    <string name="trapA">i) Gather three branches and a heavy stone</string>
+    <string name="trapB">ii) Cut notches in the branches as indicated in the illustration below</string>
+    <string name="trapC">iii) Hold up the rock with one hand, while positioning sticks "A" and "C"</string>
+    <string name="trapD">iv) Once the weight of the rock is resting on "A" and "C", use your free hand to insert and mount the trigger stick "B"</string>
+    <string name="trapE">v) Let go and the trap should be balanced and set</string>
+    <string name="trapF">vi) When a bird or animal comes along to eat the bait, the trigger trick will trip and the rock will kill the fatal blow</string>
+
+    <string name="boilWater1">i) Dig a hole into soil</string>
+    <string name="boilWater2">ii) Place a container in the center of the hole</string>
+    <string name="boilWater3">iii) Fill the gaps surrounding the container with anything wet, such as leaves</string>
+    <string name="boilWater4">iv) Place a plastic sheet over the hole and anchor the sheet in place with larger rocks around the edges of the hole</string>
+    <string name="boilWater5">v) Place one small rock in the center of the plastic, just over the container</string>
+    <string name="boilWater6">vi) Condensation will occur on the underside of the plastic and run down to the center. It will drip into the container filling it with distilled water</string>
+
+    <!--survive-jungle-->
+
+
+    <!--survive-island-->
+    <string name="island1">1. Look for others if you had a boat or plane crush</string>
+    <string name="island2">2. Get everything you can gather, water, food supply cloths, knifes, matches etc</string>
+    <string name="island3">3. Find a source of drinking water and source of food.</string>
+    <string name="island4">4. Make a shelter</string>
+    <string name="island5">5. stay in the beach and give signal to get help.
+    Write something in the sand in large scale so that any sea-plane notices. Light up fire and create smoke.</string>
+    <string name="island6">6. Try to purify the water to avoid water contaminated diseases</string>
+    <string name="island7">7. Trap animals for food using a deadfall trap</string>
+    <string name="island8">8. Try to catch some fish for protein</string>
+    <!--survive-island-->
+
+
+    <!--survive in mountain-->
+    <string name="Premount1">1. Make a detailed travel plan and make sure that each person traveling with you has a copy of it.  This plan should also include meeting points in case something happens that causes you to get separated from the group</string>
+    <string name="Premount2">2. Aside from having first aid supplies, one or more people in the group should be trained in how to handle medical emergencies. It will also be helpful if this person knows how to use natural medicines</string>
+    <string name="Premount3">3. Try to travel with at least 2 other people. It is not advisable to travel alone</string>
+    <string name="Premount4">4. Everyone in the hiking party should have their own backpack equipped with basic survival supplies. This should include a compass, map, mirror, small first aid kit, whistle, flashlight, a fully charged cell phone or satellite phone (with emergency phone numbers), and bright colored material to attract aerial rescuers</string>
+    <string name="Premount5">5. It is important to always bring food or water with you even through it is only a day hike</string>
+    <string name="Premount6">6. Each member of the party should have a compact water filter system and water purification tablets</string>
+    <string name="Premount7">7. Bring an emergency blanket and a tarp to help you stay warm</string>
+    <string name="Premount8">8. Pack the correct clothing for the time of year. If it is cool or cold, then pack clothing that can be worn in layers to put on or take off as necessary</string>
+    <string name="Premount9">9. Bring the correct type of gear for the time of year. This could include snowshoes, cross country skies, insulated boots or ice grippers for the boots</string>
+    <string name="Premount10">10. If you are going to be in a snowy country,  be sure to pack your emergency beacon and emergency airbag. When activated, the airbag will give you more buoyancy, which helps to keep you on top of the avalanche</string>
+
+
+    <string name="postMount1">1. First, DO NOT PANIC!</string>
+    <string name="postMount2">2. You must stop, stay calm, stay put and make your plan</string>
+    <string name="postMount3">3. Sit down, eat and drink something. This will calm you down and give you a chance to make a plan</string>
+    <string name="postMount4">4. Panicking can only make it worse for you.  The last thing you want to do is go thrashing around further away from a viable trail or deeper into the mountain wilderness.  If it is getting late in the day and you are in a safe area, it may be best to make camp and get a good night’s rest before starting again in the morning</string>
+    <string name="postMount5">5. If you feel you are lost do not start running or walking faster than your normal pace.   If you do, you risk the chance of falling in the mountainous terrain</string>
+    <string name="postMount6">6. Never split from the group or split the group up. If you do so, the rescue party will be looking for two groups of people instead of one</string>
+
+    <!--survive in mountain-->
+
+    <!--fire-->
+    <string name="fire1">i) Find small pieces of wood, tinder, or twigs and arrange them in a small tepee</string>
+    <string name="fire2">ii) Having good tinder is important. Try using dry grass, pine resin, birch tree bark or any other dry material that will easily take a flame.</string>
+    <string name="fire3">iii) Locate a length of soft wood. Ideally this will have a small groove in it already. However, you could also make a grove by cutting the wood with a sharp stone.</string>
+    <string name="fire4">iv) Find a hardwood stick and gather your tinder together.</string>
+    <string name="fire5">v) Put the tinder in the groove. Rub the hardwood stick up and down the groove quickly to create friction.</string>
+    <string name="fire6">vi) Eventually the tinder will ignite. Place this tinder in your small kindling tepee to start the fire.</string>
+    <string name="fire7">vii) Add larger pieces of wood to build the fire higher</string>
+    <!--fire-->
+
+
 </resources>

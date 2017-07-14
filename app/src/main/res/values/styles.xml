@@ -12,4 +12,14 @@
         <item name="android:textColorPrimary">#FFFFFF</item>
 
     </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="TipsMargin">
+        <item name="android:layout_marginTop">@dimen/tipsMargin</item>
+        <item name="android:layout_marginBottom">@dimen/tipsMargin</item>
+    </style>
+
 </resources>

@@ -31,7 +31,13 @@
         </activity>
 
         <activity
-            android:name=".StartGmail" />
+            android:label="Messaging"
+            android:parentActivityName=".MainActivity"
+            android:name=".StartGmail" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
 
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -60,14 +66,23 @@
             android:name=".PoliceMapsActivity"/>
 
         <activity
+            android:label="Location"
             android:screenOrientation="portrait"
-            android:name=".LocationActivity"/>
+            android:name=".LocationActivity"
+            android:parentActivityName=".MainActivity">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+
+        </activity>
 
 
         <activity
             android:screenOrientation="portrait"
             android:name=".hospital.HospitalListActivity"/>
 
+        <activity android:name=".Compass"/>
     </application>
 
 </manifest>

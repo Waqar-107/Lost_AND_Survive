@@ -204,19 +204,22 @@ public class HospitalListActivity extends AppCompatActivity {
             String vicinity = "";
 
             try {
-                JSONObject root = new JSONObject(jsonResponse);
-                JSONArray resultsArray = root.getJSONArray("results");
-                for(int i=0;i<resultsArray.length();i++)
+                if(jsonResponse != null)
                 {
-                    JSONObject currentObject = resultsArray.getJSONObject(i);
-                    JSONObject geoObject = currentObject.getJSONObject("geometry");
-                    JSONObject locationObject = geoObject.getJSONObject("location");
-                    lat = locationObject.getDouble("lat");
-                    lng = locationObject.getDouble("lng");
-                    name = currentObject.getString("name");
-                    vicinity = currentObject.getString("vicinity");
-                    double totalDistance = Hospital.distance(lat,lng, Utils.getCurrentLatitude(),Utils.getCurrentLongitude());
-                    arrayList.add(new Hospital(name,lat,lng,vicinity,totalDistance));
+                    JSONObject root = new JSONObject(jsonResponse);
+                    JSONArray resultsArray = root.getJSONArray("results");
+                    for(int i=0;i<resultsArray.length();i++)
+                    {
+                        JSONObject currentObject = resultsArray.getJSONObject(i);
+                        JSONObject geoObject = currentObject.getJSONObject("geometry");
+                        JSONObject locationObject = geoObject.getJSONObject("location");
+                        lat = locationObject.getDouble("lat");
+                        lng = locationObject.getDouble("lng");
+                        name = currentObject.getString("name");
+                        vicinity = currentObject.getString("vicinity");
+                        double totalDistance = Hospital.distance(lat,lng, Utils.getCurrentLatitude(),Utils.getCurrentLongitude());
+                        arrayList.add(new Hospital(name,lat,lng,vicinity,totalDistance));
+                    }
                 }
 
 
@@ -229,11 +232,20 @@ public class HospitalListActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(ArrayList<Hospital> policeStations) {
-            mEmptyStateTextView.setText("No nearby hospital found");
+
             super.onPostExecute(policeStations);
-            mAdapter.addAll(policeStations);
+
             ProgressBar loadingIndicator = (ProgressBar) findViewById(R.id.loading_indicator);
             loadingIndicator.setVisibility(View.GONE);
+
+            mEmptyStateTextView.setText("No nearby hospital found");
+
+            mAdapter.clear();
+
+            if(policeStations!= null && !policeStations.isEmpty())
+            {
+                mAdapter.addAll(policeStations);
+            }
         }
 
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">#FF9800</color>
+    <color name="colorPrimaryDark">#E65100</color>
     <color name="colorAccent">#FF4081</color>
     <color name="white">#FFFFFF</color>
 
@@ -39,5 +39,11 @@
 
     <!-- Magnitude police color for an earthquake with police over 10 -->
     <color name="police10plus">#C03823</color>
+
+    <color name="green16">#517d5c</color>
+
+    <color name="blue_grey8">#546e7a</color>
+
+    <color name="green7">#4caf50</color>
 
 </resources>

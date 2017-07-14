@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.45"
+        app:srcCompat="@drawable/city" />
+
+
+    <!--second segment-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.35"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/latitude_label"
+            android:typeface="monospace"
+            android:layout_marginLeft="16dp"
+            android:textStyle="bold"
+            android:text="Latitude: "
+            android:textColor="@color/green16"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/latitude_val"
+            android:textSize="16sp"
+            android:textColor="@color/green16"
+            android:text="@string/not_available"
+            android:layout_alignTop="@id/latitude_label"
+            android:layout_alignBottom="@id/latitude_label"
+            android:layout_toRightOf="@id/latitude_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/longitutde_label"
+            android:typeface="monospace"
+            android:layout_marginLeft="16dp"
+            android:layout_below="@id/latitude_label"
+            android:textStyle="bold"
+            android:text="Longitude: "
+            android:textColor="@color/green16"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/longitutde_val"
+            android:textSize="16sp"
+            android:textColor="@color/green16"
+            android:text="@string/not_available"
+            android:layout_alignTop="@id/longitutde_label"
+            android:layout_alignBottom="@id/longitutde_label"
+            android:layout_toRightOf="@id/longitutde_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/location_label"
+            android:typeface="monospace"
+            android:layout_marginLeft="16dp"
+            android:layout_below="@id/longitutde_label"
+            android:textStyle="bold"
+            android:text="Location: "
+            android:textColor="@color/green16"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/location_val"
+            android:textSize="16sp"
+            android:lines="4"
+            android:textColor="@color/green16"
+            android:text="@string/not_available"
+            android:layout_alignTop="@id/location_label"
+            android:layout_toRightOf="@id/location_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+    <!--second segment-->
+
+
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/botNavBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:elevation="5dp"
+        app:itemBackground="@color/colorPrimary"
+        app:itemIconTint="@drawable/nav_item"
+        app:itemTextColor="@color/white"
+        app:menu="@menu/bottom_nav_main" />
+
+
+</LinearLayout>

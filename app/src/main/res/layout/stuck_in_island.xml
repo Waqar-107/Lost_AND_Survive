@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.lenovo.advices.desert">
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@color/white">
+
+
+        <!--pre tips-->
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/post" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/island1"
+            style="@style/TipsMargin"
+            android:textAppearance="?android:attr/textAppearanceSmall"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TipsMargin"
+            android:text="@string/island2"
+            android:textSize="@dimen/tipsTextSize" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TipsMargin"
+            android:text="@string/island3"
+            android:textSize="@dimen/tipsTextSize" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TipsMargin"
+            android:text="@string/island4"
+            android:textSize="@dimen/tipsTextSize" />
+
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/imgMargin"
+            android:layout_marginTop="@dimen/imgMargin"
+            android:src="@drawable/shelter" />
+
+        <!--sub of island4, shelter-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/shelterA"
+            style="@style/TipsMargin"
+
+
+
+            android:textSize="@dimen/tipsTextSize" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/subWorkMarginLeft"
+            android:layout_marginTop="@dimen/tipsMargin"
+            android:layout_marginBottom="@dimen/tipsMargin"
+            android:layout_marginRight="@dimen/tipsMargin"
+            android:text="@string/shelterB"
+            android:textSize="@dimen/tipsTextSize" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/subWorkMarginLeft"
+            android:layout_marginTop="@dimen/tipsMargin"
+            android:layout_marginBottom="@dimen/tipsMargin"
+            android:layout_marginRight="@dimen/tipsMargin"
+            android:text="@string/shelterC"
+            android:textSize="@dimen/tipsTextSize" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/imgMargin"
+            android:layout_marginTop="@dimen/imgMargin"
+            android:src="@drawable/shelter2" />
+        <!--sub of island4, shelter-->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TipsMargin"
+            android:text="@string/island5"
+            android:textSize="@dimen/tipsTextSize" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TipsMargin"
+            android:text="@string/island6"
+            android:textSize="@dimen/tipsTextSize" />
+
+        <!--sub of island6, boil water-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/boilWater1"
+            android:layout_marginLeft="@dimen/subWorkMarginLeft"
+            android:layout_marginTop="@dimen/tipsMargin"
+            android:layout_marginBottom="@dimen/tipsMargin"
+            android:layout_marginRight="@dimen/tipsMargin"
+            android:textSize="@dimen/tipsTextSize" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/boilWater2"
+            android:layout_marginLeft="@dimen/subWorkMarginLeft"
+            android:layout_marginTop="@dimen/tipsMargin"
+            android:layout_marginBottom="@dimen/tipsMargin"
+            android:layout_marginRight="@dimen/tipsMargin"
+            android:textSize="@dimen/tipsTextSize" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/boilWater3"
+            android:layout_marginLeft="@dimen/subWorkMarginLeft"
+            android:layout_marginTop="@dimen/tipsMargin"
+            android:layout_marginBottom="@dimen/tipsMargin"
+            android:layout_marginRight="@dimen/tipsMargin"
+            android:textSize="@dimen/tipsTextSize" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/boilWater4"
+            android:layout_marginLeft="@dimen/subWorkMarginLeft"
+            android:layout_marginTop="@dimen/tipsMargin"
+            android:layout_marginBottom="@dimen/tipsMargin"
+            android:layout_marginRight="@dimen/tipsMargin"
+            android:textSize="@dimen/tipsTextSize" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/imgMargin"
+            android:layout_marginTop="@dimen/imgMargin"
+            android:src="@drawable/water_boil" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/boilWater5"
+            android:layout_marginLeft="@dimen/subWorkMarginLeft"
+            android:layout_marginTop="@dimen/tipsMargin"
+            android:layout_marginBottom="@dimen/tipsMargin"
+            android:layout_marginRight="@dimen/tipsMargin"
+            android:textSize="@dimen/tipsTextSize" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/boilWater6"
+            android:layout_marginLeft="@dimen/subWorkMarginLeft"
+            android:layout_marginTop="@dimen/tipsMargin"
+            android:layout_marginBottom="@dimen/tipsMargin"
+            android:layout_marginRight="@dimen/tipsMargin"
+            android:textSize="@dimen/tipsTextSize" />
+        <!--sub of island6, boil water-->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TipsMargin"
+            android:text="@string/island7"
+            android:textSize="@dimen/tipsTextSize" />
+
+        <!--sub of island7, trap-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/trapA"
+            android:layout_marginLeft="@dimen/subWorkMarginLeft"
+            android:layout_marginTop="@dimen/tipsMargin"
+            android:layout_marginBottom="@dimen/tipsMargin"
+            android:layout_marginRight="@dimen/tipsMargin"
+            android:textSize="@dimen/tipsTextSize" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/trapB"
+            android:layout_marginLeft="@dimen/subWorkMarginLeft"
+            android:layout_marginTop="@dimen/tipsMargin"
+            android:layout_marginBottom="@dimen/tipsMargin"
+            android:layout_marginRight="@dimen/tipsMargin"
+            android:textSize="@dimen/tipsTextSize" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/trapC"
+            android:layout_marginLeft="@dimen/subWorkMarginLeft"
+            android:layout_marginTop="@dimen/tipsMargin"
+            android:layout_marginBottom="@dimen/tipsMargin"
+            android:layout_marginRight="@dimen/tipsMargin"
+            android:textSize="@dimen/tipsTextSize" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/trapD"
+            android:layout_marginLeft="@dimen/subWorkMarginLeft"
+            android:layout_marginTop="@dimen/tipsMargin"
+            android:layout_marginBottom="@dimen/tipsMargin"
+            android:layout_marginRight="@dimen/tipsMargin"
+            android:textSize="@dimen/tipsTextSize" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/trapE"
+            android:layout_marginLeft="@dimen/subWorkMarginLeft"
+            android:layout_marginTop="@dimen/tipsMargin"
+            android:layout_marginBottom="@dimen/tipsMargin"
+            android:layout_marginRight="@dimen/tipsMargin"
+            android:textSize="@dimen/tipsTextSize" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/trapF"
+            android:layout_marginLeft="@dimen/subWorkMarginLeft"
+            android:layout_marginTop="@dimen/tipsMargin"
+            android:layout_marginBottom="@dimen/tipsMargin"
+            android:layout_marginRight="@dimen/tipsMargin"
+            android:textSize="@dimen/tipsTextSize" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/imgMargin"
+            android:layout_marginTop="@dimen/imgMargin"
+            android:src="@drawable/trap" />
+        <!--sub of island7, trap-->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/tipsMargin"
+            android:text="@string/island8"
+            android:textSize="@dimen/tipsTextSize" />
+
+        <!--sub of island8, fishing-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/fishA"
+            android:layout_marginLeft="@dimen/subWorkMarginLeft"
+            android:layout_marginTop="@dimen/tipsMargin"
+            android:layout_marginBottom="@dimen/tipsMargin"
+            android:layout_marginRight="@dimen/tipsMargin"
+            android:textSize="@dimen/tipsTextSize" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/fishB"
+            android:layout_marginLeft="@dimen/subWorkMarginLeft"
+            android:layout_marginTop="@dimen/tipsMargin"
+            android:layout_marginBottom="@dimen/tipsMargin"
+            android:layout_marginRight="@dimen/tipsMargin"
+            android:textSize="@dimen/tipsTextSize" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/fishC"
+            android:layout_marginLeft="@dimen/subWorkMarginLeft"
+            android:layout_marginTop="@dimen/tipsMargin"
+            android:layout_marginBottom="@dimen/tipsMargin"
+            android:layout_marginRight="@dimen/tipsMargin"
+            android:textSize="@dimen/tipsTextSize" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/fishD"
+            android:layout_marginLeft="@dimen/subWorkMarginLeft"
+            android:layout_marginTop="@dimen/tipsMargin"
+            android:layout_marginBottom="@dimen/tipsMargin"
+            android:layout_marginRight="@dimen/tipsMargin"
+            android:textSize="@dimen/tipsTextSize" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/fishE"
+            android:layout_marginLeft="@dimen/subWorkMarginLeft"
+            android:layout_marginTop="@dimen/tipsMargin"
+            android:layout_marginBottom="@dimen/tipsMargin"
+            android:layout_marginRight="@dimen/tipsMargin"
+            android:textSize="@dimen/tipsTextSize" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/imgMargin"
+            android:layout_marginTop="@dimen/imgMargin"
+            android:src="@drawable/fishing" />
+        <!--sub of island8, fishing-->
+
+        <!--fire-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/tipsMargin"
+            android:text="Fire"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/imgMargin"
+            android:layout_marginTop="@dimen/imgMargin"
+            android:src="@drawable/fire" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/tipsMargin"
+            android:text="@string/fire1"
+            android:textSize="@dimen/tipsTextSize" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/tipsMargin"
+            android:text="@string/fire2"
+            android:textSize="@dimen/tipsTextSize" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/tipsMargin"
+            android:text="@string/fire3"
+            android:textSize="@dimen/tipsTextSize" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/tipsMargin"
+            android:text="@string/fire4"
+            android:textSize="@dimen/tipsTextSize" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/tipsMargin"
+            android:text="@string/fire5"
+            android:textSize="@dimen/tipsTextSize" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/tipsMargin"
+            android:text="@string/fire6"
+            android:textSize="@dimen/tipsTextSize" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/tipsMargin"
+            android:text="@string/fire7"
+            android:textSize="@dimen/tipsTextSize" />
+        <!--fire-->
+
+
+    </LinearLayout>
+
+
+</ScrollView>

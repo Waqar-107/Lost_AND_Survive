@@ -87,6 +87,8 @@ public class StartGmail extends AppCompatActivity implements EasyPermissions.Per
 
         gmailToolbar = (Toolbar) findViewById(R.id.gmail_appbar);
         setSupportActionBar(gmailToolbar);
+        getSupportActionBar().setTitle("Messaging");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         msgToEditText = (EditText) findViewById(R.id.msg_to_edittext);
 

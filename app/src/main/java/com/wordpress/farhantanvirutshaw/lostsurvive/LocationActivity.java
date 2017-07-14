@@ -11,6 +11,7 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -21,6 +22,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.wordpress.farhantanvirutshaw.lostsurvive.hospital.HospitalListActivity;
 import com.wordpress.farhantanvirutshaw.lostsurvive.police.PoliceListActivity;
@@ -72,6 +74,9 @@ public class LocationActivity extends AppCompatActivity {
         mLocationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         setSupportActionBar((Toolbar)findViewById(R.id.gps_app_bar));
 
+//        getSupportActionBar().setTitle("Location");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         Button showoMapsBtn = (Button) findViewById(R.id.show_map);
         showoMapsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -121,6 +126,59 @@ public class LocationActivity extends AppCompatActivity {
                 {
                     startActivity(new Intent(LocationActivity.this, HospitalListActivity.class));
                 }
+            }
+        });
+
+        BottomNavigationView bt= (BottomNavigationView) findViewById(R.id.botNavBar);
+        bt.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem item)
+            {
+                if(item.getItemId()==R.id.btmnav_my_place)
+                {
+                    startActivity(new Intent(LocationActivity.this,MapsActivity.class));
+                }
+
+                if(item.getItemId()==R.id.btmnav_hospital)
+                {
+                    if(!isDeviceOnline())
+                    {
+                        final Snackbar snackbar = Snackbar.make(getWindow().getDecorView(),"Requires Internet & GPS",Snackbar.LENGTH_LONG);
+                        snackbar.setAction("OK", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                snackbar.dismiss();
+                            }
+                        });
+                        snackbar.show();
+                    }
+                    else
+                    {
+                        startActivity(new Intent(LocationActivity.this, HospitalListActivity.class));
+                    }
+                }
+
+                if(item.getItemId()==R.id.btmnav_police)
+                {
+                    if(!isDeviceOnline())
+                    {
+                        final Snackbar snackbar = Snackbar.make(getWindow().getDecorView(),"Requires Internet & GPS",Snackbar.LENGTH_LONG);
+                        snackbar.setAction("OK", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                snackbar.dismiss();
+                            }
+                        });
+                        snackbar.show();
+                    }
+                    else
+                    {
+                        startActivity(new Intent(LocationActivity.this, PoliceListActivity.class));
+                    }
+                }
+
+                return  true;
+
             }
         });
 
@@ -237,13 +295,18 @@ public class LocationActivity extends AppCompatActivity {
 
             try {
 
-                JSONObject root = new JSONObject(jsonResponse);
-                JSONArray resultsArray = root.getJSONArray("results");
-                JSONObject obj  = resultsArray.getJSONObject(0);
-                String temp = obj.getString("formatted_address");
-                return temp;
+                if(jsonResponse != null)
+                {
+                    JSONObject root = new JSONObject(jsonResponse);
+                    JSONArray resultsArray = root.getJSONArray("results");
+                    JSONObject obj  = resultsArray.getJSONObject(0);
+                    String temp = obj.getString("formatted_address");
+                    return temp;
+                }
+                return "";
 
             } catch (JSONException e) {
+                Toast.makeText(LocationActivity.this, "Couldn't load data", Toast.LENGTH_SHORT).show();
                 e.printStackTrace();
             }
             return null;

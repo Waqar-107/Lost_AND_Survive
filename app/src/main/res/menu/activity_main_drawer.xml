@@ -20,16 +20,16 @@
             android:title="Jungle" />
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="Accessories">
         <menu>
             <item
                 android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
+                android:icon="@drawable/compass_nav"
+                android:title="Compass" />
             <item
                 android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:icon="@drawable/flashlight_nav"
+                android:title="Flashlight" />
         </menu>
     </item>
 

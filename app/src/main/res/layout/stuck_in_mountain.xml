@@ -4,17 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.example.lenovo.advices.desert">
+    android:orientation="vertical">
 
 
     <LinearLayout
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         android:orientation="vertical"
-        android:padding="16dp"
-        android:background="@color/white">
+        android:padding="16dp">
 
 
         <!--pre tips-->
@@ -26,73 +25,73 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
+            style="@style/TipsMargin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/TipsMargin"
             android:text="@string/Premount1"
             android:textSize="@dimen/tipsTextSize" />
 
         <TextView
+            style="@style/TipsMargin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/Premount2"
-            style="@style/TipsMargin"
             android:textSize="@dimen/tipsTextSize" />
 
         <TextView
+            style="@style/TipsMargin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/TipsMargin"
             android:text="@string/Premount3"
             android:textSize="@dimen/tipsTextSize" />
 
         <TextView
+            style="@style/TipsMargin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/TipsMargin"
             android:text="@string/Premount4"
             android:textSize="@dimen/tipsTextSize" />
 
         <TextView
+            style="@style/TipsMargin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/TipsMargin"
             android:text="@string/Premount5"
             android:textSize="@dimen/tipsTextSize" />
 
 
         <TextView
+            style="@style/TipsMargin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/TipsMargin"
             android:text="@string/Premount6"
             android:textSize="@dimen/tipsTextSize" />
 
         <TextView
+            style="@style/TipsMargin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/TipsMargin"
             android:text="@string/Premount7"
             android:textSize="@dimen/tipsTextSize" />
 
         <TextView
+            style="@style/TipsMargin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/TipsMargin"
             android:text="@string/Premount8"
             android:textSize="@dimen/tipsTextSize" />
 
         <TextView
+            style="@style/TipsMargin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/TipsMargin"
             android:text="@string/Premount9"
             android:textSize="@dimen/tipsTextSize" />
 
         <TextView
+            style="@style/TipsMargin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/TipsMargin"
             android:text="@string/Premount10"
             android:textSize="@dimen/tipsTextSize" />
 
@@ -100,52 +99,50 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/tipsMargin"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/post" />
+            android:text="@string/post"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
+            style="@style/TipsMargin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/TipsMargin"
             android:text="@string/postMount1"
             android:textSize="@dimen/tipsTextSize" />
 
         <TextView
+            style="@style/TipsMargin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/TipsMargin"
             android:text="@string/postMount2"
             android:textSize="@dimen/tipsTextSize" />
 
         <TextView
+            style="@style/TipsMargin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/TipsMargin"
             android:text="@string/postMount3"
             android:textSize="@dimen/tipsTextSize" />
 
         <TextView
+            style="@style/TipsMargin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/TipsMargin"
             android:text="@string/postMount4"
             android:textSize="@dimen/tipsTextSize" />
 
         <TextView
+            style="@style/TipsMargin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/TipsMargin"
             android:text="@string/postMount5"
             android:textSize="@dimen/tipsTextSize" />
 
         <TextView
+            style="@style/TipsMargin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/TipsMargin"
             android:text="@string/postMount6"
-            android:textSize="@dimen/tipsTextSize"/>
-
-
+            android:textSize="@dimen/tipsTextSize" />
 
 
     </LinearLayout>

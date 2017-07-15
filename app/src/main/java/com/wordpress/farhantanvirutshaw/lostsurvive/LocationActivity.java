@@ -64,28 +64,28 @@ public class LocationActivity extends AppCompatActivity {
     public void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location);
-        setSupportActionBar((Toolbar) findViewById(R.id.gps_app_bar));
-
 
         mLatitudeText = (TextView) findViewById(R.id.latitude_val);
         mLongitudeText = (TextView) findViewById(R.id.longitutde_val);
         mLocationText = (TextView) findViewById(R.id.location_val);
 
         mLocationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+
+
         setSupportActionBar((Toolbar)findViewById(R.id.gps_app_bar));
 
-//        getSupportActionBar().setTitle("Location");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Location");
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        Button showoMapsBtn = (Button) findViewById(R.id.show_map);
+        /*Button showoMapsBtn = (Button) findViewById(R.id.show_map);
         showoMapsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(LocationActivity.this,MapsActivity.class));
             }
-        });
+        });*/
 
-        Button showPoliceButton = (Button)findViewById(R.id.show_police);
+        /*Button showPoliceButton = (Button)findViewById(R.id.show_police);
         showPoliceButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -127,7 +127,7 @@ public class LocationActivity extends AppCompatActivity {
                     startActivity(new Intent(LocationActivity.this, HospitalListActivity.class));
                 }
             }
-        });
+        });*/
 
         BottomNavigationView bt= (BottomNavigationView) findViewById(R.id.botNavBar);
         bt.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {

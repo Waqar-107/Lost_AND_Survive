@@ -19,7 +19,8 @@ import javax.mail.internet.MimeMessage;
  * Created by utshaw on 6/23/17.
  */
 
-public class SendMessage {
+public class SendMessage
+{
 
     public static final String MAIL_SENDER = "me";
 

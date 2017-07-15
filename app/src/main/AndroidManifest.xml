@@ -17,12 +17,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
         <activity android:name=".MainActivity">
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
+
+        <activity android:name=".Opening_Screen"
+            android:noHistory="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -30,13 +39,10 @@
             </intent-filter>
         </activity>
 
+
         <activity
-            android:label="Messaging"
-            android:parentActivityName=".MainActivity"
-            android:name=".StartGmail" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"/>
+            android:name=".StartGmail"
+            android:label="Messaging">
         </activity>
 
         <!--
@@ -52,37 +58,25 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:screenOrientation="portrait"
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps"/>
-
-
+            android:label="@string/title_activity_maps"
+            android:screenOrientation="portrait" />
         <activity
-            android:screenOrientation="portrait"
-            android:name=".police.PoliceListActivity"/>
-
+            android:name=".police.PoliceListActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:screenOrientation="portrait"
-            android:name=".PoliceMapsActivity"/>
-
+            android:name=".PoliceMapsActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:label="Location"
-            android:screenOrientation="portrait"
             android:name=".LocationActivity"
-            android:parentActivityName=".MainActivity">
-
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"/>
-
+            android:label="Location"
+            android:screenOrientation="portrait">
         </activity>
-
-
         <activity
-            android:screenOrientation="portrait"
-            android:name=".hospital.HospitalListActivity"/>
+            android:name=".hospital.HospitalListActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".Compass" />
 
-        <activity android:name=".Compass"/>
     </application>
 
 </manifest>

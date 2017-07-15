@@ -75,10 +75,35 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setItemIconTintList(null);
 
-        DesertFragment desertFragment = new DesertFragment();
         FragmentManager manager = getSupportFragmentManager();
-        manager.beginTransaction().replace(R.id.content_main, desertFragment, desertFragment.getTag()).commit();
-        getSupportActionBar().setTitle("Desert");
+        if(getIntent().getStringExtra(Opening_Screen.CALLER_ACTIVITY)!=null)
+        {
+            switch (getIntent().getStringExtra(Opening_Screen.FRAGMENT_NAME)) {
+
+                case "jungle":
+                    JungleFragment jungleFragment = new JungleFragment();
+                    manager.beginTransaction().replace(R.id.content_main, jungleFragment, jungleFragment.getTag()).commit();
+                    getSupportActionBar().setTitle("Jungle");
+                    break;
+                case "desert":
+                    DesertFragment desertFragment = new DesertFragment();
+                    manager.beginTransaction().replace(R.id.content_main, desertFragment, desertFragment.getTag()).commit();
+                    getSupportActionBar().setTitle("Desert");
+                    break;
+                case "mountain":
+                    MountainFragment mountainFragment = new MountainFragment();
+                    manager.beginTransaction().replace(R.id.content_main, mountainFragment, mountainFragment.getTag()).commit();
+                    getSupportActionBar().setTitle("Mountain");
+                    break;
+                case "abroad":
+                    break;
+                case "island":
+                    IslandFragment islandFragment = new IslandFragment();
+                    manager.beginTransaction().replace(R.id.content_main, islandFragment, islandFragment.getTag()).commit();
+                    getSupportActionBar().setTitle("Island");
+                    break;
+            }
+        }
 
     }
 
@@ -188,7 +213,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == REQUEST_GOOGLE_PLAY_SERVICES) {
             if (resultCode != RESULT_OK) {
@@ -293,40 +319,56 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         dialog.show();
     }
 
+
+    //-----------------------------------------------------navigation drawer
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(MenuItem item)
+    {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_desert) {
+        if (id == R.id.nav_desert)
+        {
             DesertFragment desertFragment = new DesertFragment();
             FragmentManager manager = getSupportFragmentManager();
             manager.beginTransaction().replace(R.id.content_main, desertFragment, desertFragment.getTag()).commit();
             getSupportActionBar().setTitle("Desert");
 
-        } else if (id == R.id.nav_island) {
+        }
+
+        else if (id == R.id.nav_island)
+        {
             IslandFragment islandFragment = new IslandFragment();
             FragmentManager manager = getSupportFragmentManager();
             manager.beginTransaction().replace(R.id.content_main, islandFragment, islandFragment.getTag()).commit();
             getSupportActionBar().setTitle("Island");
+        }
 
-
-        } else if (id == R.id.nav_mountains) {
+        else if (id == R.id.nav_mountains)
+        {
             MountainFragment mountainFragment = new MountainFragment();
             FragmentManager manager = getSupportFragmentManager();
             manager.beginTransaction().replace(R.id.content_main, mountainFragment, mountainFragment.getTag()).commit();
             getSupportActionBar().setTitle("Mountain");
+        }
 
-        } else if (id == R.id.nav_jungle) {
+        else if (id == R.id.nav_jungle)
+        {
             JungleFragment jungleFragment = new JungleFragment();
             FragmentManager manager = getSupportFragmentManager();
             manager.beginTransaction().replace(R.id.content_main, jungleFragment, jungleFragment.getTag()).commit();
             getSupportActionBar().setTitle("Jungle");
 
-        } else if (id == R.id.nav_share) {
+        }
+
+        else if (id == R.id.nav_share)
+        {
             startActivity(new Intent(this,Compass.class));
-        } else if (id == R.id.nav_send) {
+        }
+
+        else if (id == R.id.nav_send)
+        {
 
         }
 
@@ -334,6 +376,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+    //-----------------------------------------------------navigation drawer
 
 
 

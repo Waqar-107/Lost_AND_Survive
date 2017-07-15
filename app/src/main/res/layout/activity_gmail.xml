@@ -52,7 +52,9 @@
             android:layout_height="wrap_content" />
 
         <EditText
-            android:inputType="textLongMessage"
+            android:inputType="textMultiLine"
+            android:scrollHorizontally="false"
+            android:scrollbars="vertical"
             android:layout_alignRight="@id/msg_to_edittext"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"

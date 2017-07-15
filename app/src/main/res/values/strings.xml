@@ -217,4 +217,7 @@ Ropes, blankets, water purification tablet, knife etc.</string>
     <!--fire-->
 
 
+    <string name="SOS_message">Hi this is &#8230;\nI am lost,please help me immediately\nMy Phone Number:\nLocation information:</string>
+
+
 </resources>

@@ -46,6 +46,7 @@ public class Opening_Screen extends AppCompatActivity
         {
             intent.putExtra(FRAGMENT_NAME,"mountain");
         }
+
         intent.putExtra(CALLER_ACTIVITY,"main");
 
         startActivity(intent);

@@ -220,4 +220,34 @@ Ropes, blankets, water purification tablet, knife etc.</string>
     <string name="SOS_message">Hi this is &#8230;\nI am lost,please help me immediately\nMy Phone Number:\nLocation information:</string>
 
 
+    <!--abroad-->
+    <string name="preAbroad1">1. Double check and make sure that you have all of the proper vaccinations and that you have renewed all essential prescriptions</string>
+
+    <string name="preAbroad2">2.  Bring copies of your passport. If your passport gets stolen or lost you want to be sure that you can still get back into the country, or be able to prove your citizenship</string>
+
+    <string name="preAbroad3">3.  Leave a copy of your passport. For extra backup, leave a copy of your passport at home or with someone you trust. Consider making an electronic copy you can store in your email account as well</string>
+
+    <string name="preAbroad4">4.  Register with your embassy. If there’s a problem in the country, this will make it easier for your government to contact you and get you to safety</string>
+
+    <string name="preAbroad5">5.  Make sure your credit card will work in the country you’re visiting. European banks have switched almost completely to the more secure chip-and-PIN technology, and fewer businesses abroad are accepting the outdated magnetic-stripe cards</string>
+
+    <string name="preAbroad6">6.  Always have local cash. Not every place takes credit cards. Especially important places like trains or buses</string>
+
+    <string name="preAbroad7">7.  Get guidebooks. Guidebooks usually include maps, key words or phrases, and give you enough detail on certain sites that you won’t need to purchase the pamphlet at the venue. And download apps before you travel. Avoid downloading charges from your wireless carrier and get your apps before you leave</string>
+
+    <string name="preAbroad8">8.  Bring a charger adapter. Countries have different size plugs and voltage. So if you want to use your iPod, make sure you can charge it</string>
+
+    <string name="preAbroad9">9. Take power banks with you, so that your phone remains charged</string>
+
+
+    <string name="postAbroad1">1. If you are lost, don’t panic, use this app and find your location</string>
+    <string name="postAbroad2">2. If have lost anything or if your bag is snatched then use the app to find your way to the nearest police station</string>
+
+    <string name="postAbroad3">3. If you feel sick, use the app to get to the nearest hospital to you</string>
+    <string name="postAbroad4">4. You may find your direction using the compass</string>
+
+
+    <!--abroad-->
+
+
 </resources>

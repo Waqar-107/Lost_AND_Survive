@@ -232,9 +232,7 @@ public class StartGmail extends AppCompatActivity implements EasyPermissions.Per
         switch (requestCode) {
             case REQUEST_GOOGLE_PLAY_SERVICES:
                 if (resultCode != RESULT_OK) {
-//                    mOutputText.setText(
-//                            "This app requires Google Play Services. Please install " +
-//                                    "Google Play Services on your device and relaunch this app.");
+
 
                     final Snackbar snackbar = Snackbar.make(fab,"Requires Google Play Services",Snackbar.LENGTH_LONG);
                     snackbar.setAction("OK", new View.OnClickListener() {

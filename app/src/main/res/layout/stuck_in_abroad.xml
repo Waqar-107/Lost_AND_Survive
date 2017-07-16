@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+
+        <!--pre tips-->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/pre"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            style="@style/TipsMargin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/preAbroad1"
+            android:textSize="@dimen/tipsTextSize" />
+
+        <TextView
+            style="@style/TipsMargin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/preAbroad2"
+            android:textSize="@dimen/tipsTextSize" />
+
+        <TextView
+            style="@style/TipsMargin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/preAbroad3"
+            android:textSize="@dimen/tipsTextSize" />
+
+        <TextView
+            style="@style/TipsMargin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/preAbroad4"
+            android:textSize="@dimen/tipsTextSize" />
+
+        <TextView
+            style="@style/TipsMargin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/preAbroad5"
+            android:textSize="@dimen/tipsTextSize" />
+
+
+        <TextView
+            style="@style/TipsMargin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/preAbroad6"
+            android:textSize="@dimen/tipsTextSize" />
+
+        <TextView
+            style="@style/TipsMargin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/preAbroad7"
+            android:textSize="@dimen/tipsTextSize" />
+
+        <TextView
+            style="@style/TipsMargin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/preAbroad8"
+            android:textSize="@dimen/tipsTextSize" />
+
+        <TextView
+            style="@style/TipsMargin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/preAbroad9"
+            android:textSize="@dimen/tipsTextSize" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/tipsMargin"
+            android:text="@string/post"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            style="@style/TipsMargin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/postAbroad1"
+            android:textSize="@dimen/tipsTextSize" />
+
+        <TextView
+            style="@style/TipsMargin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/postAbroad2"
+            android:textSize="@dimen/tipsTextSize" />
+
+        <TextView
+            style="@style/TipsMargin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/postAbroad3"
+            android:textSize="@dimen/tipsTextSize" />
+
+        <TextView
+            style="@style/TipsMargin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/postAbroad4"
+            android:textSize="@dimen/tipsTextSize" />
+
+
+    </LinearLayout>
+
+</ScrollView>

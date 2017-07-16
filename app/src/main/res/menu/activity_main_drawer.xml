@@ -18,6 +18,11 @@
             android:id="@+id/nav_jungle"
             android:icon="@drawable/nav_jungle"
             android:title="Jungle" />
+
+        <item
+            android:id="@+id/nav_abroad"
+            android:icon="@drawable/nav_abroad"
+            android:title="Foreign land" />
     </group>
 
     <item android:title="Accessories">

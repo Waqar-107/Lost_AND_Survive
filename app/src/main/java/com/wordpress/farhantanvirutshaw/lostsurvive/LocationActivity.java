@@ -75,59 +75,7 @@ public class LocationActivity extends AppCompatActivity {
         setSupportActionBar((Toolbar)findViewById(R.id.gps_app_bar));
 
         getSupportActionBar().setTitle("Location");
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        /*Button showoMapsBtn = (Button) findViewById(R.id.show_map);
-        showoMapsBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(LocationActivity.this,MapsActivity.class));
-            }
-        });*/
-
-        /*Button showPoliceButton = (Button)findViewById(R.id.show_police);
-        showPoliceButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(!isDeviceOnline())
-                {
-                    final Snackbar snackbar = Snackbar.make(view,"Requires Internet & GPS",Snackbar.LENGTH_LONG);
-                    snackbar.setAction("OK", new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            snackbar.dismiss();
-                        }
-                    });
-                    snackbar.show();
-                }
-                else
-                {
-                    startActivity(new Intent(LocationActivity.this, PoliceListActivity.class));
-                }
-            }
-        });
-
-        Button showHotels = (Button) findViewById(R.id.show_hospital);
-        showHotels.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(!isDeviceOnline())
-                {
-                    final Snackbar snackbar = Snackbar.make(view,"Requires Internet & GPS",Snackbar.LENGTH_LONG);
-                    snackbar.setAction("OK", new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            snackbar.dismiss();
-                        }
-                    });
-                    snackbar.show();
-                }
-                else
-                {
-                    startActivity(new Intent(LocationActivity.this, HospitalListActivity.class));
-                }
-            }
-        });*/
 
         BottomNavigationView bt= (BottomNavigationView) findViewById(R.id.botNavBar);
         bt.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {

@@ -76,6 +76,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setItemIconTintList(null);
 
         FragmentManager manager = getSupportFragmentManager();
+
         if(getIntent().getStringExtra(Opening_Screen.CALLER_ACTIVITY)!=null)
         {
             switch (getIntent().getStringExtra(Opening_Screen.FRAGMENT_NAME)) {
@@ -96,6 +97,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     getSupportActionBar().setTitle("Mountain");
                     break;
                 case "abroad":
+                    AbroadFragment abrFragment = new AbroadFragment();
+                    manager.beginTransaction().replace(R.id.content_main, abrFragment, abrFragment.getTag()).commit();
+                    getSupportActionBar().setTitle("Abroad");
                     break;
                 case "island":
                     IslandFragment islandFragment = new IslandFragment();
@@ -362,6 +366,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
 
+        else if(id==R.id.nav_abroad)
+        {
+            AbroadFragment abrFragment = new AbroadFragment();
+            getSupportFragmentManager().beginTransaction().replace(R.id.content_main, abrFragment, abrFragment.getTag()).commit();
+            getSupportActionBar().setTitle("Abroad");
+        }
+
         else if (id == R.id.nav_share)
         {
             startActivity(new Intent(this,Compass.class));
@@ -369,7 +380,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         else if (id == R.id.nav_send)
         {
-
+            startActivity(new Intent(this,FlashlightActivity.class));
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

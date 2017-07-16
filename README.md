@@ -36,11 +36,11 @@ When internet services is available (i.e. at foreign countries) this app helps t
 
  
 # Authors: 
-Member Name 1: Farhan Tanvir Utshaw \n
-E-mail: farhan.tanvir.utshaw@gmail.com \n
-Github; https://github.com/Utshaw\n
-Member Name 2: Waqar Hassan Khan \n
-E-mail: waqar.hassan866@gmail.com \n
-Github: https://github.com/Waqar-107\n
-Member Name 3: Ahmed Nafis Fuad  \n
-E-mail: 1505113.anf@ugrad.cse.buet.ac.bd \n
+Member Name 1: Farhan Tanvir Utshaw 
+E-mail: farhan.tanvir.utshaw@gmail.com 
+Github; https://github.com/Utshaw
+Member Name 2: Waqar Hassan Khan 
+E-mail: waqar.hassan866@gmail.com 
+Github: https://github.com/Waqar-107
+Member Name 3: Ahmed Nafis Fuad  
+E-mail: 1505113.anf@ugrad.cse.buet.ac.bd 

@@ -1,7 +1,9 @@
 # Lost & Survive
 # Team: Buet_Matrix
 
-![poster](https://user-images.githubusercontent.com/18516336/28241679-e0c6d98a-69ba-11e7-966b-357cccdad4f0.png)
+<img src="https://user-images.githubusercontent.com/18516336/28241679-e0c6d98a-69ba-11e7-966b-357cccdad4f0.png" alt="" 
+style="height: 200px; width: 200px"
+/>
 
 ## Description 
 This Application is for everybody who loves to travel anywhere  in this planet . Even if the traveler is in the desert , mountain , island , jungle or in foreign land this app is ready to help him in a lot of ways . 
